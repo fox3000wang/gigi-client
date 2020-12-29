@@ -1,13 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
-}
-
-function assetsPath(_path) {
-  return path.posix.join('static', _path);
 }
 
 module.exports = {
@@ -51,25 +48,42 @@ module.exports = {
         ],
       },
       {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1000000,
+          name: assetsPath('img/[name].[hash:7].[ext]'),
+        },
+      },
+      {
         test: /\.css$/,
         use: [
-          'style-loader',
+          // 这里报错，还没有解决
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     esModule: true,
+          //   },
+          // },
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
-              modules: true,
-              camelCase: true,
-              localIdentName: '[name]_[local]_[hash:base64:5]',
+              modules: {
+                compileType: 'module',
+                mode: 'local',
+                auto: true,
+                exportGlobals: true,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentContext: path.resolve(__dirname, 'src'),
+                localIdentHashPrefix: 'my-custom-hash',
+                namedExport: true,
+                exportLocalsConvention: 'camelCase',
+                exportOnlyLocals: false,
+              },
             },
           },
         ],
         include: [resolve('src')],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        include: /node_modules/,
       },
     ],
   },

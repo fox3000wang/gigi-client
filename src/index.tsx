@@ -1,9 +1,18 @@
+import './css/reset.css';
+//import './css/main.css';
+// require('./css/reset.css');
+// require('./css/main.css');
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-let root = document.getElementById('root');
+import { Provider } from 'react-redux';
+import store from './store/index';
+import App from './App';
 
-let props = {className:'title'};
-let element = React.createElement("div",props,"hello");
-
-ReactDOM.render(element,root);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
