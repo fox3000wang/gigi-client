@@ -1,11 +1,21 @@
-import React from 'react';
+import './style.css';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd-mobile';
 import { getMockDate } from '../../api/getMockData';
-import './style.css';
+
+import { initDictionaryAction } from '../../store/actions/dictionary';
 
 function Literacy(props: any) {
-  console.log(props);
+  //props.dispatch(initDictionaryAction());
+
+  const { dictionary } = props;
+
+  useEffect(() => {
+    if (null === dictionary.chinese) {
+      props.dispatch(initDictionaryAction());
+    }
+  });
 
   const data = getMockDate();
 
@@ -27,6 +37,7 @@ function Literacy(props: any) {
     </div>
   );
 }
+
 export default connect(state => {
   return {
     ...state,

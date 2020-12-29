@@ -1,8 +1,8 @@
-# 基础的 React+TS 的脚手架
+# gigi 识字客户端
 
 ##### 简介
 
-基于 webpack,集成 react 和 ts 的脚手架
+小孩认字的 app
 
 ##### 如何使用
 
