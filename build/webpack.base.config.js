@@ -1,7 +1,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -58,16 +59,16 @@ module.exports = {
           name: assetsPath('img/[name].[hash:7].[ext]'),
         },
       },
+
       {
         test: /\.css$/,
         use: [
-          // 这里报错，还没有解决
-          // {
-          //   loader: MiniCssExtractPlugin.loader,
-          //   options: {
-          //     esModule: true,
-          //   },
-          // },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+            },
+          },
           {
             loader: 'css-loader',
             options: {
@@ -100,6 +101,10 @@ module.exports = {
         minifyJS: true,
       },
     }),
+    new MiniCssExtractPlugin({
+      filename: 'css/main.css',
+    }),
+    new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
 };
