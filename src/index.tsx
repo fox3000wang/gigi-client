@@ -1,14 +1,10 @@
-import './css/reset.css';
-//import './css/main.css';
-// require('./css/reset.css');
-// require('./css/main.css');
-
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
 import { Provider } from 'react-redux';
 import store from './store/index';
 import App from './App';
+import './css/reset.css';
+import './css/main.css';
 
 ReactDOM.render(
   <Provider store={store}>

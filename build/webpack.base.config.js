@@ -6,6 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
+function assetsPath(_path) {
+  return path.posix.join('static', _path);
+}
 
 module.exports = {
   entry: './src/index.tsx',

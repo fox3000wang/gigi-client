@@ -1,16 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
-function Home() {
-  return <h2>Home</h2>;
-}
+import Literacy from './pages/Literacy';
 
 export default function App() {
   return (
     <Router>
       <Switch>
         <Route path='/'>
-          <Home />
+          <Literacy />
         </Route>
       </Switch>
     </Router>
