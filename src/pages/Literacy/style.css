@@ -12,17 +12,19 @@
   height: 90%;
   background-color: #aaa;
   overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .swiper-wrapper {
   display: flex;
-  /* margin-left: -90vw; */
 }
 
 .swiper-slide {
   /* display: flex; */
   /* width: 100%; */
-  height: 90%; 
+  width: 90vw;
+  height: 100vw;
   background-color: aqua;
   /* border: 2px solid black; */
   border-radius: 10px;
@@ -37,5 +39,21 @@
   line-height: 88vw;
   font-size: 50vw;
   text-align: center;
-  border-radius: 1vw;
+  /* border-radius: 1vw; */
+}
+
+.btn-container {
+  display: flex;
+  justify-content:space-around;
+}
+
+.btn-play {
+  background-color: aqua;
+  width: 45vw;
+  height: 10vw;
+  text-align: center;
+  font-size: 5vw;
+  line-height: 10vw;
+  border: 2px solid black; 
+  cursor: pointer;
 }

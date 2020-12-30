@@ -22,7 +22,7 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    contentBase: [path.resolve(__dirname, 'dist')],
+    contentBase: [path.resolve(__dirname, 'dist'), resolve('media')],
     historyApiFallback: {
       //browserHash 刷新重定向到index.html
       index: './index.html',
@@ -59,7 +59,15 @@ module.exports = {
           name: assetsPath('img/[name].[hash:7].[ext]'),
         },
       },
-
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1000,
+          name: assetsPath('media/[name].[hash:7].[ext]'),
+        },
+        include: [resolve('src')],
+      },
       {
         test: /\.css$/,
         use: [
