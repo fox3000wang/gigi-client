@@ -1,4 +1,4 @@
-# gigi 识字客户端
+# 《gigi 识字》客户端
 
 ##### 简介
 
@@ -10,14 +10,18 @@
 npm i
 
 npm run dev
-
-
 ```
 
 ##### 打包
 
 ```bash
 npm run build
+```
+
+##### 部署
+
+```shell
+npm run publish
 ```
 
 # 开发历程
@@ -27,3 +31,7 @@ npm run build
 - [x] 初期搭建项目骨架, 前后端分离。
 - [x] 前端技术栈: webpack, react hook, ts, axios
 - [x] 后端技术栈：node, nest，占时先不用数据库，数据先以 json 的文本存放
+- [ ] 基本的 UI，交互，流程跑通，部署上线
+- [ ] 优化 UI，适配移动端和 pc 端，
+- [ ] 优化交互，减少按钮
+- [ ] 优化加载，减少加载等待的时间

@@ -18,6 +18,7 @@
 
 .swiper-wrapper {
   display: flex;
+  /* display:inline; */
 }
 
 .swiper-slide {
@@ -27,9 +28,11 @@
   height: 100vw;
   background-color: aqua;
   /* border: 2px solid black; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   cursor: pointer;
+  transform: scale(1);
 }
+
 
 .swiper-word {
   width: 88vw;
@@ -41,6 +44,7 @@
   text-align: center;
   /* border-radius: 1vw; */
 }
+
 
 .btn-container {
   display: flex;
@@ -56,4 +60,62 @@
   line-height: 10vw;
   border: 2px solid black; 
   cursor: pointer;
+}
+
+.turnLeft{
+  animation-name: turnLeftAnimation;
+  animation-duration: 1s;
+  
+}
+.turnLeft2{
+  animation-name: turnLeft2Animation;
+  animation-duration: 1s;  
+  width: 0;
+}
+.turnRight{
+  animation-name: pageRightAnimation;
+  animation-duration: 1s;
+  
+}
+.turnRight2{
+  animation-name: pageRight2Animation;
+  animation-duration: 1s;
+  width: 0;
+}
+
+@keyframes turnLeftAnimation {
+  0% {
+    transform: translate(88vw, 0) scale(0);;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);;
+  }
+}
+
+@keyframes turnLeft2Animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-88vw, 0) scale(0);
+  }
+}
+
+
+@keyframes pageRightAnimation {
+  0% {
+    transform: translate(-100vw, 0) scale(0);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes pageRight2Animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(88vw, 0) scale(0);
+  }
 }

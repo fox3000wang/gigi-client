@@ -8,9 +8,10 @@ function Literacy(props: any) {
   const { dictionary, chinesePage } = props;
   const { chinese } = dictionary;
   const { currentPage } = chinesePage;
+  const { lastPage } = chinesePage;
 
-  let words: Array<object> = [];
-  let data: Array<object> = [];
+  const words: Array<object> = [];
+  const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
 
   useEffect(() => {
     if (!chinese) {
@@ -22,45 +23,59 @@ function Literacy(props: any) {
     Object.keys(chinese).map(e => words.push(chinese[e]));
   }
 
-  /*
-  if (words) {
-    if (currentPage === 0) {
-      data = words.slice(0, 3);
-    } else if (currentPage === words.length - 1) {
-      data = words.slice(words.length - 3, words.length);
-    } else {
-      data = words.slice(currentPage - 1, currentPage + 1);
-    }
-  }*/
-  if (words) {
-    data = words.slice(currentPage, currentPage + 3);
-  }
-
   function turnLeft() {
-    props.dispatch(turnPageAction(currentPage + 1));
+    if (currentPage < words.length - 1) {
+      props.dispatch(turnPageAction(currentPage + 1));
+    }
   }
+
   function turnRight() {
-    props.dispatch(turnPageAction(currentPage - 1));
+    if (currentPage > 0) {
+      props.dispatch(turnPageAction(currentPage - 1));
+    }
   }
 
-  let audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
+  const isInit: boolean = currentPage === lastPage;
+  const isNext: boolean = currentPage > lastPage;
 
-  console.log(`currentPage ${currentPage}`);
+  console.log(`state ${JSON.stringify(chinesePage)}`);
+
+  function getCard(data: any, isMain: boolean) {
+    if (!data) {
+      return <></>;
+    }
+    function getName() {
+      if (isInit && isMain) {
+        return 'swiper-slide';
+      }
+      return `swiper-slide ${
+        isMain
+          ? isNext
+            ? `turnLeft`
+            : `turnRight`
+          : isNext
+          ? `turnLeft2`
+          : `turnRight2`
+      }`;
+    }
+    return (
+      <div
+        className={getName()}
+        key={Math.random()}
+        onClick={() => audio.play()}>
+        <div className='swiper-word'>{decodeURI(data.URI)}</div>
+      </div>
+    );
+  }
+
   return (
     <div className='bg'>
       <div className='swiper-container'>
-        {data && data.length > 0 ? (
+        {words && words.length ? (
           <div className='swiper-wrapper'>
-            {data.map((card: any, index: number) => {
-              return (
-                <div
-                  className='swiper-slide'
-                  key={card.id}
-                  onClick={() => audio.play()}>
-                  <div className='swiper-word'>{decodeURI(card.URI)}</div>
-                </div>
-              );
-            })}
+            {isNext ? getCard(words[currentPage - 1], false) : null}
+            {!isNext ? getCard(words[currentPage + 1], false) : null}
+            {getCard(words[currentPage], true)}
           </div>
         ) : (
           <div />
