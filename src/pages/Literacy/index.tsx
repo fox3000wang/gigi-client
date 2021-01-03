@@ -1,4 +1,4 @@
-import './style.css';
+import '../../css/literacy.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
@@ -26,12 +26,16 @@ function Literacy(props: any) {
   function turnLeft() {
     if (currentPage < words.length - 1) {
       props.dispatch(turnPageAction(currentPage + 1));
+    } else {
+      props.dispatch(turnPageAction(0));
     }
   }
 
   function turnRight() {
     if (currentPage > 0) {
       props.dispatch(turnPageAction(currentPage - 1));
+    } else {
+      props.dispatch(turnPageAction(words.length - 1));
     }
   }
 
@@ -80,7 +84,17 @@ function Literacy(props: any) {
         ) : (
           <div />
         )}
-        <div className='btn-container'>
+      </div>
+      <div className='btn-container'>
+        <div className='btn-group'>
+          <div className='btn-right' onClick={() => console.log('right')}>
+            正确
+          </div>
+          <div className='btn-wrong' onClick={() => console.log('wrong')}>
+            错误
+          </div>
+        </div>
+        <div className='btn-group'>
           <div className='btn-play' onClick={() => turnLeft()}>
             翻左
           </div>
