@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { turnPageAction } from '../../store/actions/chinese';
+import { postRecord } from '../../api/postRecord';
 
 function Literacy(props: any) {
   const { dictionary, chinesePage } = props;
@@ -10,7 +11,6 @@ function Literacy(props: any) {
   const { currentPage } = chinesePage;
   const { lastPage } = chinesePage;
 
-  const words: Array<object> = [];
   const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
 
   useEffect(() => {
@@ -19,12 +19,8 @@ function Literacy(props: any) {
     }
   });
 
-  if (chinese && !words.length) {
-    Object.keys(chinese).map(e => words.push(chinese[e]));
-  }
-
   function turnLeft() {
-    if (currentPage < words.length - 1) {
+    if (currentPage < chinese.length - 1) {
       props.dispatch(turnPageAction(currentPage + 1));
     } else {
       props.dispatch(turnPageAction(0));
@@ -35,8 +31,15 @@ function Literacy(props: any) {
     if (currentPage > 0) {
       props.dispatch(turnPageAction(currentPage - 1));
     } else {
-      props.dispatch(turnPageAction(words.length - 1));
+      props.dispatch(turnPageAction(chinese.length - 1));
     }
+  }
+
+  function btnClickHandler(result: boolean) {
+    postRecord({
+      ...chinese[currentPage],
+      result,
+    });
   }
 
   const isInit: boolean = currentPage === lastPage;
@@ -67,7 +70,7 @@ function Literacy(props: any) {
         className={getName()}
         key={Math.random()}
         onClick={() => audio.play()}>
-        <div className='swiper-word'>{decodeURI(data.URI)}</div>
+        <div className='swiper-word'>{data.name}</div>
       </div>
     );
   }
@@ -75,11 +78,11 @@ function Literacy(props: any) {
   return (
     <div className='bg'>
       <div className='swiper-container'>
-        {words && words.length ? (
+        {chinese && chinese.length ? (
           <div className='swiper-wrapper'>
-            {isNext ? getCard(words[currentPage - 1], false) : null}
-            {!isNext ? getCard(words[currentPage + 1], false) : null}
-            {getCard(words[currentPage], true)}
+            {isNext ? getCard(chinese[currentPage - 1], false) : null}
+            {!isNext ? getCard(chinese[currentPage + 1], false) : null}
+            {getCard(chinese[currentPage], true)}
           </div>
         ) : (
           <div />
@@ -87,10 +90,10 @@ function Literacy(props: any) {
       </div>
       <div className='btn-container'>
         <div className='btn-group'>
-          <div className='btn-right' onClick={() => console.log('right')}>
+          <div className='btn-right' onClick={() => btnClickHandler(true)}>
             正确
           </div>
-          <div className='btn-wrong' onClick={() => console.log('wrong')}>
+          <div className='btn-wrong' onClick={() => btnClickHandler(false)}>
             错误
           </div>
         </div>

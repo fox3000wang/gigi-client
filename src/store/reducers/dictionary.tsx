@@ -8,7 +8,7 @@ export const dictionaryReducer = (state: any = initDictionary, action: any) => {
     case INIT_DICTIONARY:
       return {
         ...state,
-        chinese: action.dictionary,
+        chinese: action.chinese,
       };
     default:
       return {

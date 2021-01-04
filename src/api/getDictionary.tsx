@@ -1,3 +1,21 @@
+/*
+ * 字的数组
+ */
+export function getChineseArray(): any {
+  const dict: any = getDictionary();
+  const words: any = [];
+  Object.keys(dict).map(e => {
+    words.push({
+      ...dict[e],
+      name: e,
+    });
+  });
+  return words;
+}
+
+/*
+ * 原始字典数据
+ */
 export function getDictionary(): any {
   return {
     一: { id: 0, URI: '%E4%B8%80' },
