@@ -1,15 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Literacy from './pages/Literacy';
 
 export default function App() {
   return (
-    <Router>
+    <HashRouter>
       <Switch>
-        <Route path='/'>
+        <Route path='/literacy'>
           <Literacy />
         </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+        <Route path='*' render={() => <h1>404</h1>}></Route>
       </Switch>
-    </Router>
+    </HashRouter>
   );
 }

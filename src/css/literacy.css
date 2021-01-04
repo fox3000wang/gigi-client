@@ -19,18 +19,11 @@
 
 .swiper-wrapper {
   display: flex;
-  /* background-color: crimson; */
   justify-content:center;
 }
 
 .swiper-slide {
-  /* display: flex; */
-  /* width: 315px;
-  height: 315px; */
   background-color: #fff;
-  /* background-color: #fff; */
-  /* border: 2px solid black; */
-  /* border-radius: 10px; */
   cursor: pointer;
   transform: scale(1);
 }
@@ -43,15 +36,12 @@
   line-height: 80vw;
   font-size: 80vw;
   text-align: center;
-  /* background-color:cornsilk; */
   background: url(../assets/images/bg.png) center no-repeat;
-  /* border-radius: 1vw; */
 }
 
 
 .btn-container {
   display: flex;
-  /* justify-content:space-around; */
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -70,7 +60,6 @@
   text-align: center;
   font-size: 5vw;
   line-height: 10vw;
-  /* border: 2px solid black;  */
   border: 1px solid #fff; 
   cursor: pointer;
 }
@@ -82,7 +71,6 @@
   text-align: center;
   font-size: 5vw;
   line-height: 10vw;
-  /* border: 2px solid black;  */
   border: 1px solid #fff; 
   cursor: pointer;
 }
@@ -94,7 +82,6 @@
   text-align: center;
   font-size: 5vw;
   line-height: 10vw;
-  /* border: 2px solid black;  */
   border: 1px solid #fff; 
   cursor: pointer;
 }
