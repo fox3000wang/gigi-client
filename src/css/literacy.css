@@ -109,6 +109,7 @@
   animation-name: turnLeft2Animation;
   animation-duration: 1s;  
   width: 0;
+  transform: scale(0);
 }
 .turnRight{
   animation-name: pageRightAnimation;
@@ -118,6 +119,7 @@
   animation-name: pageRight2Animation;
   animation-duration: 1s;
   width: 0;
+  transform: scale(0);
 }
 
 @keyframes turnLeftAnimation {
