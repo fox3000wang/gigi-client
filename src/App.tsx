@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Literacy from './pages/Literacy';
+import Report from './pages/Report';
 
 export default function App() {
   return (
@@ -9,6 +10,9 @@ export default function App() {
       <Switch>
         <Route path='/literacy'>
           <Literacy />
+        </Route>
+        <Route path='/record'>
+          <Report />
         </Route>
         <Route path='/'>
           <Home />

@@ -12,7 +12,7 @@ function Home(props: any) {
         <div className='btn' onClick={() => history.push('/literacy')}>
           考试
         </div>
-        <div className='btn' onClick={() => history.push('/')}>
+        <div className='btn' onClick={() => history.push('/record')}>
           识字情况
         </div>
       </div>

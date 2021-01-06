@@ -3,14 +3,15 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { turnPageAction } from '../../store/actions/chinese';
-import { postRecord } from '../../api/postRecord';
+import { postRecord } from '../../api/record';
+import { useHistory } from 'react-router-dom';
 
 function Literacy(props: any) {
   const { dictionary, chinesePage } = props;
   const { chinese } = dictionary;
   const { currentPage } = chinesePage;
   const { lastPage } = chinesePage;
-
+  const history = useHistory();
   const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
 
   useEffect(() => {
@@ -77,6 +78,9 @@ function Literacy(props: any) {
 
   return (
     <div className='bg'>
+      <div className='backBtn' onClick={() => history.push('/')}>
+        返回
+      </div>
       <div className='swiper-container'>
         {chinese && chinese.length ? (
           <div className='swiper-wrapper'>

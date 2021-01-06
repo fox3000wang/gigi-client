@@ -1,62 +1,30 @@
 html,
 body {
-	background: #FFF;
-	-moz-user-select:none;
+  background: #FFF;
+  -moz-user-select:none;
   -webkit-user-select:none;
   -ms-user-select:none;
   -khtml-user-select:none;
   user-select:none;
-}
-
-.container {
-	box-sizing: border-box;
-	margin: 20px auto;
-	width: 760px;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-}
-
-.container .column {
-	box-sizing: border-box;
-	width: 240px;
-}
-
-.card {
-	margin-bottom: 10px;
-	padding: 5px;
-	background: #FFF;
-	box-shadow: 3px 3px 10px 0 #222;
-}
-
-.card a {
-	display: block;
-}
-
-.card a .lazyImageBox {
-	background: url("../assets/images/default.gif") no-repeat center center #F4F4F4;
-	overflow: hidden;
-}
-
-.card a .lazyImageBox img {
-	width: 100%;
-	opacity: 0;
-	transition: opacity .3s;
-}
-
-.card a p {
-	margin-top: 5px;
-	color: #000;
-	font-size: 12px;
-	line-height: 20px;
-}
-
-.loadMore {
-	height: 100px;
+  font: 16px;
 }
 
 #root{
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.backBtn{
+  width: 10vw;
+  height: 3vh;
+  border: 1px solid #FFF;
+  color: #FFF;
+  margin-top: 1vh;
+  margin-left: 1vh;
+  position: absolute;
+  border-radius: 5px;
+  line-height: 3vh;
+  text-align: center;
+  cursor: pointer;
 }

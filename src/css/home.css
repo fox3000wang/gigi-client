@@ -5,7 +5,6 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  font-size: 32px;
 }
 
 .title{
@@ -14,6 +13,7 @@
   color: #fff;
   line-height: 10vh;
   text-align: center;
+  font-size: large;
 }
 
 .menu{
@@ -28,7 +28,6 @@
 .btn{
   background-color: aqua;
   color: #fff;
-  /* border: 1px solid #000; */
   width: 80%;
   margin: 20px;
   cursor: pointer;
@@ -36,4 +35,5 @@
   line-height: 50px;
   text-align: center;
   border-radius: 10px;
+  font-size: large;
 }
