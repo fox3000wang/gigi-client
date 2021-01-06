@@ -7,8 +7,11 @@ function Home(props: any) {
   const history = useHistory();
   return (
     <div className='bg'>
-      <div className='title'>目录</div>
+      <div className='title'>琪琪识字</div>
       <div className='menu'>
+        <div className='btn' onClick={() => history.push('/exercise')}>
+          练习
+        </div>
         <div className='btn' onClick={() => history.push('/literacy')}>
           考试
         </div>

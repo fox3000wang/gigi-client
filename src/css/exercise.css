@@ -1,0 +1,59 @@
+.exercise{
+  width: 100vw;
+  height: 100vh;
+  background-color: #D7A6E0;
+}
+
+.inner{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
+
+.mask-l{
+  background-color: #D7A6E0;
+  width: 20vw;
+  height: 5vh;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.mask-r{
+  background-color: #D7A6E0;
+  width: 30vw;
+  height: 5vh;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.title-red{
+  background-color:  #D7A6E0;
+  height: 5vh;
+  width: 100vw;
+  position: fixed;
+}
+
+.btn-ctn{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+  padding-top: 5vh;
+}
+
+.red-btn{
+  background-color: #D7A6E0;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  display: flex;
+  color: #fff;
+  margin: 3px;
+  padding: 2px;
+}
