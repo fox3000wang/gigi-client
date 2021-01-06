@@ -81,8 +81,8 @@ function Exercise(props: any) {
           返回
         </div>
         <iframe className='inner' src={url}></iframe>
-        <div className='mask-l'></div>
-        <div className='mask-r'></div>
+        {/* <div className='mask-l'></div>
+        <div className='mask-r'></div> */}
       </div>
     );
   }
