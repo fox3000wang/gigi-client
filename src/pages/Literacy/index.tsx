@@ -49,7 +49,6 @@ function Literacy(props: any) {
   console.log(`state ${JSON.stringify(chinesePage)}`);
 
   document.onkeydown = function (event) {
-    console.log(event.code);
     event.code === 'ArrowRight' ? turnRight() : null;
     event.code === 'ArrowLeft' ? turnLeft() : null;
   };

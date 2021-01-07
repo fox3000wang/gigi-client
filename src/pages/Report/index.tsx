@@ -12,8 +12,6 @@ function Report(props: any) {
   const right: any[] = [];
   const wrong: any[] = [];
 
-  // debugger;
-
   data.forEach((e: record) => {
     if (e.result) {
       right.push(e);
