@@ -1,8 +1,8 @@
 import { TURN_CHINESE_PAGE } from '../types';
 
 let page: any = {
-  currentPage: 0,
-  lastPage: 0,
+  currentPage: 100,
+  lastPage: 100,
 };
 export const chineseReducer = (state: any = page, action: any) => {
   switch (action.type) {
@@ -18,3 +18,4 @@ export const chineseReducer = (state: any = page, action: any) => {
       };
   }
 };
+

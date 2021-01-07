@@ -1,6 +1,7 @@
 .exercise{
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
+  height: 100%;
   background-color: #D7A6E0;
 }
 
@@ -12,9 +13,9 @@
   border: 0;
 }
 
-/* .mask-l{
+.mask-l{
   background-color: #D7A6E0;
-  width: 20vw;
+  width: 30vw;
   height: 5vh;
   position: absolute;
   bottom: 0;
@@ -28,7 +29,7 @@
   position: absolute;
   bottom: 0;
   right: 0;
-} */
+}
 
 .title-red{
   background-color:  #D7A6E0;
