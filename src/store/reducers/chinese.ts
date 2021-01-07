@@ -1,8 +1,10 @@
 import { TURN_CHINESE_PAGE } from '../types';
 
+const DEFAULT_PAGE:number = 200;
+
 let page: any = {
-  currentPage: 100,
-  lastPage: 100,
+  currentPage: DEFAULT_PAGE,
+  lastPage: DEFAULT_PAGE,
 };
 export const chineseReducer = (state: any = page, action: any) => {
   switch (action.type) {
