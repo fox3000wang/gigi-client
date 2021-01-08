@@ -5,21 +5,6 @@ import { useHistory } from 'react-router-dom';
 import { record } from '../../module/record';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 
-// function Ebase(str) {
-//   try {
-//     if (typeof str !== 'undefined' && str !== '' && typeof str !== 'object') {
-//       if (typeof str !== 'string') {
-//         str = str.toString();
-//       }
-//       return $.base64.btoa(str, true);
-//     } else {
-//       return '';
-//     }
-//   } catch (e) {
-//     return '';
-//   }
-// }
-
 function Exercise(props: any) {
   const history = useHistory();
   const [current, setCurrent] = useState(0);

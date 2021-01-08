@@ -1,6 +1,6 @@
 import { TURN_CHINESE_PAGE } from '../types';
 
-const DEFAULT_PAGE:number = 200;
+const DEFAULT_PAGE:number = 500;
 
 let page: any = {
   currentPage: DEFAULT_PAGE,
