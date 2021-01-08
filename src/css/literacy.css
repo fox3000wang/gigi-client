@@ -55,6 +55,9 @@
 }
 
 .btn-right{
+  display: flex;
+  justify-content:center;
+  align-items: center;
   background-color: green;
   width: 50%;
   height: 10vw;
@@ -66,6 +69,9 @@
 }
 
 .btn-wrong{
+  display: flex;
+  justify-content:center;
+  align-items: center;
   background-color: red;
   width: 50%;
   height: 10vw;
@@ -77,6 +83,9 @@
 }
 
 .btn-play {
+  display: flex;
+  justify-content:center;
+  align-items: center;
   background-color: aqua;
   width: 50%;
   height: 10vw;
@@ -86,6 +95,44 @@
   border: 1px solid #fff; 
   cursor: pointer;
 }
+
+
+.triangleUp{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 20px 10px;
+  border-color: transparent transparent #fff transparent;
+  margin: 4px;
+}
+
+.triangleDown{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
+  margin: 4px;
+}
+
+.triangleLeft{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 20px 10px 0px;
+  border-color: transparent #fff transparent transparent ;
+  margin: 4px;
+}
+
+.triangleRight{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0px 10px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin: 4px;
+}
+
 
 
 .turnLeft{

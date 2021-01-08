@@ -49,8 +49,12 @@ function Literacy(props: any) {
   console.log(`state ${JSON.stringify(chinesePage)}`);
 
   document.onkeydown = function (event) {
+    // console.log(event.code);
     event.code === 'ArrowRight' ? turnRight() : null;
     event.code === 'ArrowLeft' ? turnLeft() : null;
+    event.code === 'ArrowUp' ? btnClickHandler(true) : null;
+    event.code === 'ArrowDown' ? btnClickHandler(false) : null;
+    event.code === 'Space' ? audio.play() : null;
   };
 
   function getCard(data: any, isMain: boolean) {
@@ -100,18 +104,22 @@ function Literacy(props: any) {
       <div className='btn-container'>
         <div className='btn-group'>
           <div className='btn-right' onClick={() => btnClickHandler(true)}>
+            <div className='triangleUp'></div>
             正确
           </div>
           <div className='btn-wrong' onClick={() => btnClickHandler(false)}>
             错误
+            <div className='triangleDown'></div>
           </div>
         </div>
         <div className='btn-group'>
           <div className='btn-play' onClick={() => turnLeft()}>
+            <div className='triangleLeft'></div>
             翻左
           </div>
           <div className='btn-play' onClick={() => turnRight()}>
             翻右
+            <div className='triangleRight'></div>
           </div>
         </div>
       </div>
