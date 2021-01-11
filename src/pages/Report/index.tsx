@@ -5,12 +5,11 @@ import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
 import { useHistory } from 'react-router-dom';
 
-let data: any = getRecord();
-
 function Report(props: any) {
   const history = useHistory();
   const right: any[] = [];
   const wrong: any[] = [];
+  let data: any = getRecord();
 
   data.forEach((e: record) => {
     if (e.result) {
@@ -27,7 +26,7 @@ function Report(props: any) {
       </div>
       <div className='title'>报告页</div>
       <div className='box'>
-        <div className='subTitle'>掌握</div>
+        <div className='subTitle'>掌握 ({right.length})</div>
         <div className='words'>
           {right.map((e: record, i: number) => {
             return (
