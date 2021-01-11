@@ -5,6 +5,7 @@ import { initDictionaryAction } from '../../store/actions/dictionary';
 import { turnPageAction } from '../../store/actions/chinese';
 import { postRecord } from '../../api/record';
 import { useHistory } from 'react-router-dom';
+import { record } from '../../module/record';
 
 function Literacy(props: any) {
   const { dictionary, chinesePage } = props;
@@ -41,6 +42,19 @@ function Literacy(props: any) {
       ...chinese[currentPage],
       result,
     });
+  }
+
+  function jumpTo() {
+    const text: any = document.getElementById('jump');
+
+    for (let i = 0; i < chinese.length; i++) {
+      if (chinese[i].name === text.value) {
+        props.dispatch(turnPageAction(chinese[i].id));
+        return;
+      }
+    }
+
+    console.log(`${text.value} not fonud!!!`);
   }
 
   const isInit: boolean = currentPage === lastPage;
@@ -89,6 +103,10 @@ function Literacy(props: any) {
     <div className='bg'>
       <div className='backBtn' onClick={() => history.push('/')}>
         返回
+      </div>
+      <div className='literacy_input'>
+        <input id='jump' type='text'></input>
+        <button onClick={() => jumpTo()}>go</button>
       </div>
       <div className='swiper-container'>
         {chinese && chinese.length ? (
