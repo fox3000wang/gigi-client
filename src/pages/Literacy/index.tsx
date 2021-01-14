@@ -50,6 +50,7 @@ function Literacy(props: any) {
     for (let i = 0; i < chinese.length; i++) {
       if (chinese[i].name === text.value) {
         props.dispatch(turnPageAction(chinese[i].id));
+        text.value = '';
         return;
       }
     }
