@@ -56,7 +56,10 @@ function Analysis(props: any) {
             const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
             return (
               <div className={sty} key={i}>
-                <div className='analysis-word'>{e.name}</div>
+                <div className='analysis-word'>
+                  <div className='analysis-id'>{e.id}</div>
+                  {e.name}
+                </div>
                 <div className='analysis-num'>{e.times}</div>
               </div>
             );

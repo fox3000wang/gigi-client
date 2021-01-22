@@ -1,24 +1,25 @@
 
-.analysis{
-  background-color: #fff;
-  height: 100%;
-  
-}
-
 .analysis-box{
   display: flex;
   border: 1px solid #000;
   margin: 1px;
   border-radius: 15%;
   align-items: flex-end;
-  height: 36px;
+  height: 40px;
+}
+
+.analysis-id{
+  margin-top: 2px;
+  --size: 10;
+  font-size: calc(var(--size) * 1 * 1px);
+  line-height: 0;
 }
 
 .analysis-word{
   --size: 36;
   width: calc(var(--size) * 1px);
   height: calc(var(--size) * 1px);
-  font-size: calc(var(--size) * 0.9 * 1px);
+  font-size: calc(var(--size) * 0.7 * 1px);
   line-height: calc(var(--size) * 1px);
   text-align: center;
   align-items: center;
@@ -27,6 +28,7 @@
 .analysis-num{
   font-size: 10px;
   line-height: calc(var(--size) * 1px);
+  margin-right: 1px;
 }
 
 .greenBg{
