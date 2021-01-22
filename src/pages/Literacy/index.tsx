@@ -96,6 +96,7 @@ function Literacy(props: any) {
         key={Math.random()}
         onClick={() => audio.play()}>
         <div className='swiper-word'>{data.name}</div>
+        <div className='swiper-id'>{data.id}</div>
       </div>
     );
   }

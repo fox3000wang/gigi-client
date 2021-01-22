@@ -11,11 +11,26 @@ function Report(props: any) {
   const wrong: any[] = [];
   let data: any = getRecord();
 
+  function hasRecord(record: record, records: Array<record>): boolean {
+    let result = false;
+    records.forEach((r: record) => {
+      if (record.id === r.id) {
+        result = true;
+      }
+    });
+    return result;
+  }
+
+  // 去重版
   data.forEach((e: record) => {
     if (e.result) {
-      right.push(e);
+      if (!hasRecord(e, right)) {
+        right.push(e);
+      }
     } else {
-      wrong.push(e);
+      if (!hasRecord(e, wrong)) {
+        wrong.push(e);
+      }
     }
   });
 

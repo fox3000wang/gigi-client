@@ -44,6 +44,12 @@
   justify-content:center;
 }
 
+.swiper-id{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .swiper-slide {
   background-color: #fff;
   cursor: pointer;
