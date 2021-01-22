@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
+import Analysis from './pages/Analysis';
 import Exercise from './pages/Exercise';
 import Home from './pages/Home';
 import Literacy from './pages/Literacy';
@@ -17,6 +18,9 @@ export default function App() {
         </Route>
         <Route path='/record'>
           <Report />
+        </Route>
+        <Route path='/analysis'>
+          <Analysis />
         </Route>
         <Route path='/'>
           <Home />
