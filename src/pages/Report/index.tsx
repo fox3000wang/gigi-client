@@ -9,7 +9,9 @@ function Report(props: any) {
   const history = useHistory();
   const right: any[] = [];
   const wrong: any[] = [];
-  let data: any = getRecord();
+  // let data: any = getRecord();
+  const { record } = props;
+  const { recordCn } = record;
 
   function hasRecord(record: record, records: Array<record>): boolean {
     let result = false;
@@ -22,7 +24,7 @@ function Report(props: any) {
   }
 
   // 去重版
-  data.forEach((e: record) => {
+  recordCn.forEach((e: record) => {
     if (e.result) {
       if (!hasRecord(e, right)) {
         right.push(e);

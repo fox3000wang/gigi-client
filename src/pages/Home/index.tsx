@@ -2,9 +2,20 @@ import '../../css/home.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { initDictionaryAction } from '../../store/actions/dictionary';
+import { getRecordAction } from '../../store/actions/record';
 
 function Home(props: any) {
   const history = useHistory();
+
+  useEffect(() => {
+    const { dictionary, record } = props;
+    const { chinese } = dictionary;
+    const { recordCn } = record;
+    chinese || props.dispatch(initDictionaryAction());
+    recordCn || props.dispatch(getRecordAction());
+  });
+
   return (
     <div className='bg'>
       <div className='title'>琪琪识字</div>

@@ -5,7 +5,6 @@ import * as dictJsonCn from './dict.cn.json';
  * 原始字典数据
  */
 export function getDictCn(): any {
-  // delete dictJsonCn.default;
   const dictCn:any = dictJsonCn;
   return dictCn['default'];
 }
