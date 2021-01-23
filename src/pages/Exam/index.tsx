@@ -1,4 +1,4 @@
-import '../../css/literacy.css';
+import '../../css/exam.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
@@ -46,7 +46,6 @@ function Exam(props: any) {
 
   function jumpTo() {
     const text: any = document.getElementById('jump');
-
     for (let i = 0; i < chinese.length; i++) {
       if (chinese[i].name === text.value) {
         props.dispatch(turnPageAction(chinese[i].id));
@@ -54,7 +53,6 @@ function Exam(props: any) {
         return;
       }
     }
-
     console.log(`${text.value} not fonud!!!`);
   }
 

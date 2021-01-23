@@ -4,7 +4,9 @@ import * as recordJson from './record.cn.json';
 const url = `http://localhost/vita`;
 
 export function postRecord(record: any) {
-  axios.post(url, record);
+  axios.post(url, record).then(response => {
+    console.log(`post record ${record.name} ${response.status}`);
+  });
   return record;
 }
 
