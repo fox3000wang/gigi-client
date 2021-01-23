@@ -50,6 +50,13 @@
   top: 0;
 }
 
+.swiper-times{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
 .swiper-slide {
   background-color: #fff;
   cursor: pointer;

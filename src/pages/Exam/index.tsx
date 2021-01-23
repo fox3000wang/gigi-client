@@ -97,6 +97,7 @@ function Exam(props: any) {
         onClick={() => audio.play()}>
         <div className='swiper-word'>{data.name}</div>
         <div className='swiper-id'>{data.id}</div>
+        <div className='swiper-times'>{data.times}</div>
       </div>
     );
   }
