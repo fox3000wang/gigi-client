@@ -6,19 +6,18 @@ import { record } from '../../module/record';
 import { useHistory } from 'react-router-dom';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import '../../css/analysis.css';
+import { getRecordAction } from '../../store/actions/record';
 
 function Analysis(props: any) {
   const history = useHistory();
 
-  const { dictionary } = props;
+  const { dictionary, record } = props;
   const { chinese } = dictionary;
-  const records: any = getRecord();
+  const { recordCn } = record;
 
   useEffect(() => {
-    if (!chinese) {
-      props.dispatch(initDictionaryAction());
-      return;
-    }
+    chinese || props.dispatch(initDictionaryAction());
+    recordCn || props.dispatch(getRecordAction());
   });
 
   function hasRecord(record: record, records: Array<record>): boolean {
@@ -31,17 +30,18 @@ function Analysis(props: any) {
     return result;
   }
 
-  chinese &&
+  if (recordCn && chinese) {
     chinese.forEach((word: any) => {
       word.times = 0;
-      records.forEach((record: record) => {
+      recordCn.forEach((record: record) => {
         if (word.id === record.id && record.result) {
           word.times = word.times + 1;
         }
       });
     });
+  }
 
-  if (!chinese) {
+  if (!recordCn || !chinese) {
     return <div></div>;
   }
   return (

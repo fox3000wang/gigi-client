@@ -9,7 +9,6 @@ function Report(props: any) {
   const history = useHistory();
   const right: any[] = [];
   const wrong: any[] = [];
-  // let data: any = getRecord();
   const { record } = props;
   const { recordCn } = record;
 
