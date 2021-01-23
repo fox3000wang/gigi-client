@@ -6,6 +6,7 @@ import { turnPageAction } from '../../store/actions/chinese';
 import { postRecord } from '../../api/record';
 import { useHistory } from 'react-router-dom';
 import { record } from '../../module/record';
+import Title from '../../component/title';
 
 function Exam(props: any) {
   const { dictionary, chinesePage } = props;
@@ -102,9 +103,7 @@ function Exam(props: any) {
 
   return (
     <div className='bg'>
-      <div className='backBtn' onClick={() => history.push('/')}>
-        返回
-      </div>
+      <Title></Title>
       <div className='literacy_input'>
         <input id='jump' type='text'></input>
         <button onClick={() => jumpTo()}>go</button>

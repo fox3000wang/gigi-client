@@ -1,12 +1,11 @@
 import '../../css/analysis.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
 import { useHistory } from 'react-router-dom';
 import { initDictionaryAction } from '../../store/actions/dictionary';
-import '../../css/analysis.css';
 import { getRecordAction } from '../../store/actions/record';
+import Title from '../../component/title';
 
 function Analysis(props: any) {
   const history = useHistory();
@@ -46,10 +45,7 @@ function Analysis(props: any) {
   }
   return (
     <div className='bg'>
-      <div className='backBtn' onClick={() => history.push('/')}>
-        返回
-      </div>
-      <div className='title'>报告页</div>
+      <Title>识字分析</Title>
       <div className='box'>
         <div className='words'>
           {chinese.map((e: any, i: number) => {

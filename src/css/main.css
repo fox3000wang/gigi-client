@@ -17,16 +17,6 @@ body {
   overflow: hidden;
 }
 
-.backBtn{
-  width: 10vw;
-  height: 3vh;
-  border: 1px solid #FFF;
-  color: #FFF;
-  margin-top: 1vh;
-  margin-left: 1vh;
-  position: absolute;
-  border-radius: 5px;
-  line-height: 3vh;
-  text-align: center;
-  cursor: pointer;
+:root{
+  --bg-color: aqua;
 }

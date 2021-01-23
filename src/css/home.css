@@ -1,19 +1,24 @@
 .bg {
   width: 100%;
   height: 100%;
-  background-color: aqua;
+  background-color: #FFF;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  font-size: 12px;
 }
 
-.title{
-  height: 10vh;
+.home-title {
+  height: 5vh;
+  line-height: 5vh;
   width: 100%;
   color: #fff;
-  line-height: 10vh;
   text-align: center;
-  font-size: large;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.5vh;
 }
 
 .menu{

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
 import { useHistory } from 'react-router-dom';
+import Title from '../../component/title';
 
 function Report(props: any) {
   const history = useHistory();
@@ -37,10 +38,7 @@ function Report(props: any) {
 
   return (
     <div className='bg'>
-      <div className='backBtn' onClick={() => history.push('/')}>
-        返回
-      </div>
-      <div className='title'>报告页</div>
+      <Title>识字情况</Title>
       <div className='box'>
         <div className='subTitle'>掌握 ({right.length})</div>
         <div className='words'>
