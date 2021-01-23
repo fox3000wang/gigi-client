@@ -7,7 +7,7 @@ import { postRecord } from '../../api/record';
 import { useHistory } from 'react-router-dom';
 import { record } from '../../module/record';
 
-function Literacy(props: any) {
+function Exam(props: any) {
   const { dictionary, chinesePage } = props;
   const { chinese } = dictionary;
   const { currentPage } = chinesePage;
@@ -151,4 +151,4 @@ export default connect(state => {
   return {
     ...state,
   };
-})(Literacy);
+})(Exam);

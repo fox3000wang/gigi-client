@@ -3,7 +3,7 @@ import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 import Analysis from './pages/Analysis';
 import Exercise from './pages/Exercise';
 import Home from './pages/Home';
-import Literacy from './pages/Literacy';
+import Exam from './pages/Exam';
 import Report from './pages/Report';
 
 export default function App() {
@@ -13,8 +13,8 @@ export default function App() {
         <Route path='/exercise'>
           <Exercise />
         </Route>
-        <Route path='/literacy'>
-          <Literacy />
+        <Route path='/exam'>
+          <Exam />
         </Route>
         <Route path='/record'>
           <Report />
