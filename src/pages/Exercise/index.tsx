@@ -1,10 +1,14 @@
-import '../../css/exercise.css';
+import './style.css';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { record } from '../../module/record';
 import { initDictionaryAction } from '../../store/actions/dictionary';
+import Title from '../../component/title';
 
+/**
+ * 用iframe套一个识字的app
+ * @param props
+ */
 function Exercise(props: any) {
   const history = useHistory();
   const [current, setCurrent] = useState(0);
@@ -32,26 +36,23 @@ function Exercise(props: any) {
 
   if (current === 0) {
     return (
-      <div>
-        <div className='title-red'>
-          <div className='backBtn' onClick={() => history.push('/')}>
-            返回
+      <div className='bg'>
+        <Title></Title>
+        <div className='box'>
+          <div className='btn-ctn'>
+            {btns.map((items, i) => {
+              return (
+                <div
+                  key={i}
+                  className='red-btn'
+                  onClick={() => setCurrent(i + 1)}>
+                  {items.map((item: any) => {
+                    return <div key={item.id}>{item.name}</div>;
+                  })}
+                </div>
+              );
+            })}
           </div>
-        </div>
-
-        <div className='btn-ctn'>
-          {btns.map((items, i) => {
-            return (
-              <div
-                key={i}
-                className='red-btn'
-                onClick={() => setCurrent(i + 1)}>
-                {items.map((item: any) => {
-                  return <div key={item.id}>{item.name}</div>;
-                })}
-              </div>
-            );
-          })}
         </div>
       </div>
     );

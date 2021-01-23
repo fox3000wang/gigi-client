@@ -1,4 +1,4 @@
-import '../../css/exam.css';
+import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';

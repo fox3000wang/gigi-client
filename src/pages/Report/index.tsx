@@ -1,4 +1,4 @@
-import '../../css/report.css';
+import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getRecord } from '../../api/record';

@@ -5,7 +5,6 @@ import './title.css';
 
 function Title(params: any) {
   const history = useHistory();
-
   return (
     <div>
       <div className='component-title'>
