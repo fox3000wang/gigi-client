@@ -4,60 +4,50 @@ import { connect } from 'react-redux';
 import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
 import Title from '../../component/title';
+import { getRecordAction } from '../../store/actions/record';
+import { initDictionaryAction } from '../../store/actions/dictionary';
 
 function Report(props: any) {
-  const right: any[] = [];
-  const wrong: any[] = [];
-  const { record } = props;
+  const { dictionary, record } = props;
+  const { chinese } = dictionary;
   const { recordCn } = record;
+  const history: any = {};
 
-  function hasRecord(record: record, records: Array<record>): boolean {
-    let result = false;
-    records.forEach((r: record) => {
-      if (record.id === r.id) {
-        result = true;
-      }
-    });
-    return result;
-  }
-
-  // 去重版
-  recordCn.forEach((e: record) => {
-    if (e.result) {
-      if (!hasRecord(e, right)) {
-        right.push(e);
-      }
-    } else {
-      if (!hasRecord(e, wrong)) {
-        wrong.push(e);
-      }
-    }
+  useEffect(() => {
+    chinese || props.dispatch(initDictionaryAction());
+    recordCn || props.dispatch(getRecordAction());
   });
 
+  recordCn &&
+    recordCn.forEach((record: record) => {
+      if (!history[record.date]) {
+        history[record.date] = [];
+      }
+      history[record.date].push(record);
+    });
+
+  if (!recordCn) {
+    return <></>;
+  }
   return (
     <div className='bg'>
-      <Title>识字情况</Title>
+      <Title txt='识字履历'></Title>
       <div className='box'>
-        <div className='subTitle'>掌握 ({right.length})</div>
-        <div className='words'>
-          {right.map((e: record, i: number) => {
-            return (
-              <div className='word' key={i}>
-                {e.name}
-              </div>
-            );
-          })}
-        </div>
-        <div className='subTitle'>不认识</div>
-        <div className='words'>
-          {wrong.map((e: record, i: number) => {
-            return (
-              <div className='word' key={i}>
-                {e.name}
-              </div>
-            );
-          })}
-        </div>
+        {Object.keys(history).map((key: string) => {
+          const words = history[key];
+          return (
+            <div className='words' key={key}>
+              <div className='subTitle'>{key}</div>
+              {words.map((record: record) => {
+                return (
+                  <div className='word' key={`${key}${record.id}`}>
+                    {record.name}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

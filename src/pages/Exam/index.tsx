@@ -101,7 +101,7 @@ function Exam(props: any) {
 
   return (
     <div className='bg'>
-      <Title></Title>
+      <Title txt='考试'></Title>
       <div className='literacy_input'>
         <input id='jump' type='text'></input>
         <button onClick={jumpTo}>go</button>

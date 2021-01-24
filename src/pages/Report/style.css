@@ -20,11 +20,13 @@
 }
 
 .word{
-  width: 16px;
-  height: 16px;
+  --font-size: 22;
+  width: calc(var(--font-size) * 1px);
+  height: calc(var(--font-size) * 1px);
+  font-size: calc(var(--font-size) * 0.9 * 1px);
+  line-height: calc(var(--font-size) * 1px);
   border: 1px solid #000;
-  line-height: 16px;
-  text-align: center;
   margin: 1px;
-  border-radius: 30%;
+  text-align: center;
+  border-radius: 20%;
 }

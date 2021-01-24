@@ -11,6 +11,7 @@ function Title(params: any) {
         <div className='component-backBtn' onClick={() => history.push('/')}>
           返回
         </div>
+        <div className='component-txt'>{params.txt}</div>
       </div>
     </div>
   );

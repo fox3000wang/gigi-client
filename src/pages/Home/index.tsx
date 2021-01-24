@@ -27,11 +27,11 @@ function Home(props: any) {
         <div className='home-btn' onClick={() => history.push('/exam')}>
           考试
         </div>
-        {/* <div className='btn' onClick={() => history.push('/record')}>
-          识字情况
-        </div> */}
         <div className='home-btn' onClick={() => history.push('/analysis')}>
           识字分析
+        </div>
+        <div className='home-btn' onClick={() => history.push('/record')}>
+          学习履历
         </div>
       </div>
     </div>

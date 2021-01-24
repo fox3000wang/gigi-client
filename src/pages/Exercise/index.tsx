@@ -1,7 +1,6 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import Title from '../../component/title';
 
@@ -10,18 +9,14 @@ import Title from '../../component/title';
  * @param props
  */
 function Exercise(props: any) {
-  const history = useHistory();
-  const [current, setCurrent] = useState(0);
-  const ID = 825;
   const { dictionary } = props;
   const { chinese } = dictionary;
-
+  const [current, setCurrent] = useState(0);
+  const ID = 825;
   let btns: any[] = [];
 
   useEffect(() => {
-    if (!chinese) {
-      props.dispatch(initDictionaryAction());
-    }
+    chinese || props.dispatch(initDictionaryAction());
   });
 
   if (chinese) {
@@ -37,7 +32,7 @@ function Exercise(props: any) {
   if (current === 0) {
     return (
       <div className='bg'>
-        <Title></Title>
+        <Title txt='练习'></Title>
         <div className='box'>
           <div className='btn-ctn'>
             {btns.map((items, i) => {
@@ -63,7 +58,7 @@ function Exercise(props: any) {
     )}&cl=NzkwODhfMTU1Nzcz&f=1`;
     return (
       <div className='exercise'>
-        <div className='backBtn' onClick={() => setCurrent(0)}>
+        <div className='exercise-back-btn' onClick={() => setCurrent(0)}>
           返回
         </div>
         <iframe className='inner' src={url}></iframe>

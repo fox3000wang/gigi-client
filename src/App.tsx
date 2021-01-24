@@ -16,11 +16,11 @@ export default function App() {
         <Route path='/exam'>
           <Exam />
         </Route>
-        {/* <Route path='/record'>
-          <Report />
-        </Route> */}
         <Route path='/analysis'>
           <Analysis />
+        </Route>
+        <Route path='/record'>
+          <Report />
         </Route>
         <Route path='/'>
           <Home />

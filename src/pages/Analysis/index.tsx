@@ -57,7 +57,7 @@ function Analysis(props: any) {
   }
   return (
     <div className='bg'>
-      <Title>识字分析</Title>
+      <Title txt='识字分析'></Title>
       <div className='scroll-box'>
         <div className='subTitle'>掌握 ({right.length})</div>
         <div className='words'>

@@ -1,24 +1,31 @@
 
 .component-title{
+  --height: 5vh;
   height: 5vh;
   line-height: 5vh;
   width: 100%;
   color: #fff;
-  text-align: center;
   background-color: var(--bg-color);
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .component-backBtn{
-  width: 10vw;
+  width: 8vw;
   height: 3vh;
   border: 1px solid #FFF;
   color: #FFF;
-  margin-left: 1vh;
+  margin: 1vh;
   position: absolute;
   border-radius: 5px;
   line-height: 3vh;
   text-align: center;
   cursor: pointer;
+}
+
+.component-txt{
+  margin: auto;
+  width: 200px;
+  height: 100%;
+  text-align: center;
 }
