@@ -2,17 +2,16 @@ import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { record } from '../../module/record';
-import { useHistory } from 'react-router-dom';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { getRecordAction } from '../../store/actions/record';
 import Title from '../../component/title';
 
 function Analysis(props: any) {
-  const history = useHistory();
-
   const { dictionary, record } = props;
   const { chinese } = dictionary;
   const { recordCn } = record;
+  const right: any[] = [];
+  const wrong: any[] = [];
 
   useEffect(() => {
     chinese || props.dispatch(initDictionaryAction());
@@ -22,12 +21,25 @@ function Analysis(props: any) {
   function hasRecord(record: record, records: Array<record>): boolean {
     let result = false;
     records.forEach((r: record) => {
-      if (record.id === r.id && r.result) {
+      if (record.id === r.id) {
         result = true;
       }
     });
     return result;
   }
+
+  recordCn &&
+    recordCn.forEach((e: record) => {
+      if (e.result) {
+        if (!hasRecord(e, right)) {
+          right.push(e);
+        }
+      } else {
+        if (!hasRecord(e, wrong)) {
+          wrong.push(e);
+        }
+      }
+    });
 
   if (recordCn && chinese) {
     chinese.forEach((word: any) => {
@@ -46,7 +58,28 @@ function Analysis(props: any) {
   return (
     <div className='bg'>
       <Title>识字分析</Title>
-      <div className='box'>
+      <div className='scroll-box'>
+        <div className='subTitle'>掌握 ({right.length})</div>
+        <div className='words'>
+          {right.map((e: record, i: number) => {
+            return (
+              <div className='word' key={i}>
+                {e.name}
+              </div>
+            );
+          })}
+        </div>
+        <div className='subTitle'>不认识</div>
+        <div className='words'>
+          {wrong.map((e: record, i: number) => {
+            return (
+              <div className='word' key={i}>
+                {e.name}
+              </div>
+            );
+          })}
+        </div>
+        <div className='subTitle'></div>
         <div className='words'>
           {chinese.map((e: any, i: number) => {
             const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';

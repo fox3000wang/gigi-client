@@ -13,13 +13,11 @@ function Exam(props: any) {
   const { chinese } = dictionary;
   const { currentPage } = chinesePage;
   const { lastPage } = chinesePage;
-  const history = useHistory();
+
   const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
 
   useEffect(() => {
-    if (!chinese) {
-      props.dispatch(initDictionaryAction());
-    }
+    chinese || props.dispatch(initDictionaryAction());
   });
 
   function turnLeft() {
@@ -106,7 +104,7 @@ function Exam(props: any) {
       <Title></Title>
       <div className='literacy_input'>
         <input id='jump' type='text'></input>
-        <button onClick={() => jumpTo()}>go</button>
+        <button onClick={jumpTo}>go</button>
       </div>
       <div className='swiper-container'>
         {chinese && chinese.length ? (
@@ -131,11 +129,11 @@ function Exam(props: any) {
           </div>
         </div>
         <div className='btn-group'>
-          <div className='btn-play' onClick={() => turnLeft()}>
+          <div className='btn-play' onClick={turnLeft}>
             <div className='triangleLeft'></div>
             翻左
           </div>
-          <div className='btn-play' onClick={() => turnRight()}>
+          <div className='btn-play' onClick={turnRight}>
             翻右
             <div className='triangleRight'></div>
           </div>

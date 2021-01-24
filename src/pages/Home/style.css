@@ -16,21 +16,32 @@
   display: flex;
   width: 100%;
   background-color: #FFF;
-  flex-direction: column;
-  align-items: center;
   padding-top: 20px;
   height: 100%;
+  flex-wrap: wrap;
 }
 
-.btn{
-  background-color: aqua;
+.home-btn{
+  background-color: var(--bg-color);
   color: #fff;
-  width: 80%;
   margin: 20px;
   cursor: pointer;
-  height: 50px;
-  line-height: 50px;
+  height: 100px;
+  width:  100px;
+  line-height: 100px;
   text-align: center;
   border-radius: 10px;
-  font-size: large;
+  font-size: 20px;
 }
+
+.home-btn:hover{
+  border: 1px solid green;
+  height: 99px;
+  width:  99px;
+}
+
+.home-btn:active{
+  border: 1px solid green;
+  transform :scale(0.9);
+}
+

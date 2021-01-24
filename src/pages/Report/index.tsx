@@ -3,11 +3,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
-import { useHistory } from 'react-router-dom';
 import Title from '../../component/title';
 
 function Report(props: any) {
-  const history = useHistory();
   const right: any[] = [];
   const wrong: any[] = [];
   const { record } = props;

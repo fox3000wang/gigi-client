@@ -1,4 +1,34 @@
 
+.scroll-box{
+  background-color: #fff;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.subTitle{
+  width: 100%;
+  height: 5vh;
+  color: #000;
+  line-height: 5vh;
+  text-align: center;
+}
+
+.words{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.word{
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
+  line-height: 16px;
+  text-align: center;
+  margin: 1px;
+  border-radius: 30%;
+}
+
 .analysis-box{
   display: flex;
   border: 1px solid #000;

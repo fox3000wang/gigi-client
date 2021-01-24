@@ -16,9 +16,9 @@ export default function App() {
         <Route path='/exam'>
           <Exam />
         </Route>
-        <Route path='/record'>
+        {/* <Route path='/record'>
           <Report />
-        </Route>
+        </Route> */}
         <Route path='/analysis'>
           <Analysis />
         </Route>
