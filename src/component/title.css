@@ -1,8 +1,7 @@
 
 .component-title{
-  --height: 5vh;
-  height: 5vh;
-  line-height: 5vh;
+  height: var(--title-height);
+  line-height: var(--title-height);
   width: 100%;
   color: #fff;
   background-color: var(--bg-color);

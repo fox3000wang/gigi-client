@@ -95,6 +95,10 @@ function Analysis(props: any) {
           })}
         </div>
       </div>
+      <div className='analysis-buttom'>
+        <div>掌握</div>
+        <div>全部</div>
+      </div>
     </div>
   );
 }

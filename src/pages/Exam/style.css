@@ -113,7 +113,7 @@
   display: flex;
   justify-content:center;
   align-items: center;
-  background-color: aqua;
+  background-color: var(--bg-color);
   width: 50%;
   height: 10vw;
   text-align: center;

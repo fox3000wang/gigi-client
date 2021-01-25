@@ -18,7 +18,8 @@ body {
 }
 
 :root{
-  --bg-color: aqua;
+  --bg-color: rgb(80, 80, 160);
+  --title-height: 5vh;
 }
 
 .bg {
@@ -29,4 +30,11 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 12px;
+}
+
+.scroll-box{
+  background-color: #fff;
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: var(--title-height);
 }
