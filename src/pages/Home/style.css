@@ -35,13 +35,11 @@
 }
 
 .home-btn:hover{
-  border: 1px solid green;
-  height: 99px;
-  width:  99px;
+  background-color: #555;
 }
 
 .home-btn:active{
-  border: 1px solid green;
+  background-color: #555;
   transform :scale(0.9);
 }
 

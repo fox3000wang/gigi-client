@@ -4,7 +4,7 @@ import Analysis from './pages/Analysis';
 import Exercise from './pages/Exercise';
 import Home from './pages/Home';
 import Exam from './pages/Exam';
-import Report from './pages/Report';
+import History from './pages/History';
 
 export default function App() {
   return (
@@ -19,8 +19,8 @@ export default function App() {
         <Route path='/analysis'>
           <Analysis />
         </Route>
-        <Route path='/record'>
-          <Report />
+        <Route path='/history'>
+          <History />
         </Route>
         <Route path='/'>
           <Home />

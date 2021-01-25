@@ -1,13 +1,12 @@
 import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getRecord } from '../../api/record';
 import { record } from '../../module/record';
 import Title from '../../component/title';
 import { getRecordAction } from '../../store/actions/record';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 
-function Report(props: any) {
+function History(props: any) {
   const { dictionary, record } = props;
   const { chinese } = dictionary;
   const { recordCn } = record;
@@ -57,4 +56,4 @@ export default connect(state => {
   return {
     ...state,
   };
-})(Report);
+})(History);

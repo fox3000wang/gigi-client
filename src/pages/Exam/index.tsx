@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { turnPageAction } from '../../store/actions/chinese';
 import { postRecord } from '../../api/record';
-import { useHistory } from 'react-router-dom';
 import { record } from '../../module/record';
 import Title from '../../component/title';
 
@@ -107,7 +106,9 @@ function Exam(props: any) {
     <div className='bg'>
       <Title txt='考试'></Title>
       <div className='literacy_input'>
+        {/* <form autocomplete='new-password'> */}
         <input id='jump' type='text'></input>
+        {/* </form> */}
         <button onClick={jumpTo}>go</button>
       </div>
       <div className='swiper-container'>

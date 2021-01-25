@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { getRecordAction } from '../../store/actions/record';
-import Title from '../../component/title';
 
 function Home(props: any) {
   const history = useHistory();
@@ -30,7 +29,7 @@ function Home(props: any) {
         <div className='home-btn' onClick={() => history.push('/analysis')}>
           识字分析
         </div>
-        <div className='home-btn' onClick={() => history.push('/record')}>
+        <div className='home-btn' onClick={() => history.push('/history')}>
           学习履历
         </div>
       </div>

@@ -1,46 +1,33 @@
 import './style.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { record } from '../../module/record';
 import { initDictionaryAction } from '../../store/actions/dictionary';
 import { getRecordAction } from '../../store/actions/record';
 import Title from '../../component/title';
+import Button from '../../component/button';
+
+enum State {
+  All,
+  Known,
+  Unknown,
+}
 
 function Analysis(props: any) {
   const { dictionary, record } = props;
   const { chinese } = dictionary;
   const { recordCn } = record;
-  const right: any[] = [];
-  const wrong: any[] = [];
+  const known: any[] = [];
+  const unknow: any[] = [];
 
   useEffect(() => {
     chinese || props.dispatch(initDictionaryAction());
     recordCn || props.dispatch(getRecordAction());
   });
 
-  function hasRecord(record: record, records: Array<record>): boolean {
-    let result = false;
-    records.forEach((r: record) => {
-      if (record.id === r.id) {
-        result = true;
-      }
-    });
-    return result;
-  }
+  const [state, setState] = useState(State.All);
 
-  recordCn &&
-    recordCn.forEach((e: record) => {
-      if (e.result) {
-        if (!hasRecord(e, right)) {
-          right.push(e);
-        }
-      } else {
-        if (!hasRecord(e, wrong)) {
-          wrong.push(e);
-        }
-      }
-    });
-
+  // 记录学习次数
   if (recordCn && chinese) {
     chinese.forEach((word: any) => {
       word.times = 0;
@@ -49,8 +36,14 @@ function Analysis(props: any) {
           word.times = word.times + 1;
         }
       });
+      word.times > 0 ? known.push(word) : unknow.push(word);
     });
   }
+
+  const words: any = {};
+  words[State.All] = chinese;
+  words[State.Known] = known;
+  words[State.Unknown] = unknow;
 
   if (!recordCn || !chinese) {
     return <div></div>;
@@ -59,29 +52,11 @@ function Analysis(props: any) {
     <div className='bg'>
       <Title txt='识字分析'></Title>
       <div className='scroll-box'>
-        <div className='subTitle'>掌握 ({right.length})</div>
-        <div className='words'>
-          {right.map((e: record, i: number) => {
-            return (
-              <div className='word' key={i}>
-                {e.name}
-              </div>
-            );
-          })}
+        <div className='subTitle'>
+          掌握({known.length}/{chinese.length}){' '}
         </div>
-        <div className='subTitle'>不认识</div>
         <div className='words'>
-          {wrong.map((e: record, i: number) => {
-            return (
-              <div className='word' key={i}>
-                {e.name}
-              </div>
-            );
-          })}
-        </div>
-        <div className='subTitle'></div>
-        <div className='words'>
-          {chinese.map((e: any, i: number) => {
+          {words[state].map((e: any, i: number) => {
             const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
             return (
               <div className={sty} key={i}>
@@ -96,8 +71,9 @@ function Analysis(props: any) {
         </div>
       </div>
       <div className='analysis-buttom'>
-        <div>掌握</div>
-        <div>全部</div>
+        <Button txt='掌握' onClick={() => setState(State.Known)}></Button>
+        <Button txt='不会' onClick={() => setState(State.Unknown)}></Button>
+        <Button txt='全部' onClick={() => setState(State.All)}></Button>
       </div>
     </div>
   );
@@ -108,3 +84,26 @@ export default connect(state => {
     ...state,
   };
 })(Analysis);
+
+// recordCn &&
+//   recordCn.forEach((e: record) => {
+//     if (e.result) {
+//       if (!hasRecord(e, right)) {
+//         right.push(e);
+//       }
+//     } else {
+//       if (!hasRecord(e, wrong)) {
+//         wrong.push(e);
+//       }
+//     }
+//   });
+
+// function hasRecord(record: record, records: Array<record>): boolean {
+//   let result = false;
+//   records.forEach((r: record) => {
+//     if (record.id === r.id) {
+//       result = true;
+//     }
+//   });
+//   return result;
+// }
