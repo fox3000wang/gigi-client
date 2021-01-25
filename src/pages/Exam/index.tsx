@@ -45,6 +45,9 @@ function Exam(props: any) {
 
   function jumpTo() {
     const text: any = document.getElementById('jump');
+    if (!text.value) {
+      return;
+    }
     for (let i = 0; i < chinese.length; i++) {
       if (chinese[i].name === text.value) {
         props.dispatch(turnPageAction(chinese[i].id));
@@ -67,6 +70,7 @@ function Exam(props: any) {
     event.code === 'ArrowUp' ? btnClickHandler(true) : null;
     event.code === 'ArrowDown' ? btnClickHandler(false) : null;
     event.code === 'Space' ? audio.play() : null;
+    event.code === 'Enter' ? jumpTo() : null;
   };
 
   function getCard(data: any, isMain: boolean) {
