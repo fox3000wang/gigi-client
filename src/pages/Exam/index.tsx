@@ -54,6 +54,7 @@ function Exam(props: any) {
         return;
       }
     }
+    text.blur();
     console.log(`${text.value} not fonud!!!`);
   }
 
