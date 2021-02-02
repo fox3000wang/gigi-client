@@ -20,7 +20,8 @@ function Exercise(props: any) {
   });
 
   if (chinese) {
-    for (let i = 0; i < chinese.length; i += 8) {
+    // for (let i = 0; i < chinese.length; i += 8) {
+    for (let i = 0; i < 1000; i += 8) {
       const btn = [];
       for (let j = 0; j < 8; j++) {
         btn.push(chinese[i + j]);
