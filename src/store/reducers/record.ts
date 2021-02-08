@@ -9,7 +9,8 @@ export const recordReducer = (state: any = initRecord, action: any) => {
     case GET_RECORD:
       return {
         ...state,
-        recordCn: action.records,
+        recordCn: action.records.recordCn,
+        recordEn: action.records.recordEn,
       };
     case UPDAET_RECORD:
       return {

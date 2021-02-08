@@ -15,10 +15,12 @@ enum State {
 
 function Analysis(props: any) {
   const { dictionary, record } = props;
-  const { chinese } = dictionary;
-  const { recordCn } = record;
-  const known: any[] = [];
-  const unknow: any[] = [];
+  const { chinese, english } = dictionary;
+  const { recordCn, recordEn } = record;
+  const knownCn: any[] = [];
+  const unknowCn: any[] = [];
+  const knownEn: any[] = [];
+  const unknowEn: any[] = [];
 
   useEffect(() => {
     chinese || props.dispatch(initDictionaryAction());
@@ -36,14 +38,30 @@ function Analysis(props: any) {
           word.times = word.times + 1;
         }
       });
-      word.times > 0 ? known.push(word) : unknow.push(word);
+      word.times > 0 ? knownCn.push(word) : unknowCn.push(word);
+    });
+  }
+  if (recordEn && english) {
+    english.forEach((word: any) => {
+      word.times = 0;
+      recordEn.forEach((record: record) => {
+        if (word.id === record.id && record.result) {
+          word.times = word.times + 1;
+        }
+      });
+      word.times > 0 ? knownEn.push(word) : unknowEn.push(word);
     });
   }
 
-  const words: any = {};
-  words[State.All] = chinese;
-  words[State.Known] = known;
-  words[State.Unknown] = unknow;
+  const wordsCn: any = {};
+  wordsCn[State.All] = chinese;
+  wordsCn[State.Known] = knownCn;
+  wordsCn[State.Unknown] = unknowCn;
+
+  const wordsEn: any = {};
+  wordsEn[State.All] = english;
+  wordsEn[State.Known] = knownEn;
+  wordsEn[State.Unknown] = unknowEn;
 
   if (!recordCn || !chinese) {
     return <div></div>;
@@ -53,10 +71,27 @@ function Analysis(props: any) {
       <Title txt='识字分析'></Title>
       <div className='scroll-box'>
         <div className='subTitle'>
-          掌握({known.length}/{chinese.length}){' '}
+          掌握({knownCn.length}/{chinese.length}){' '}
         </div>
         <div className='words'>
-          {words[state].map((e: any, i: number) => {
+          {wordsCn[state].map((e: any, i: number) => {
+            const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
+            return (
+              <div className={sty} key={i}>
+                <div className='analysis-word'>
+                  <div className='analysis-id'>{e.id}</div>
+                  {e.name}
+                </div>
+                <div className='analysis-num'>{e.times}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div className='subTitle'>
+          掌握({knownEn.length}/{english.length}){' '}
+        </div>
+        <div className='words'>
+          {wordsEn[state].map((e: any, i: number) => {
             const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
             return (
               <div className={sty} key={i}>

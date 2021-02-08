@@ -1,5 +1,6 @@
 import axios from 'axios';
-import * as recordJson from './record.cn.json';
+import * as recordCnJson from './record.cn.json';
+import * as recordEnJson from './record.en.json';
 
 const url = `http://localhost/vita`;
 
@@ -25,11 +26,16 @@ export function getRecord() {
 }
 
 function getLocalRecord() {
-  const data:any[] = [];
+  const recordCn:any[] = [];
+  const recordEn:any[] = [];
   let i = 0;
-  while(recordJson[i]){
-    data.push(recordJson[i++]);
+  while(recordCnJson[i]){
+    recordCn.push(recordCnJson[i++]);
   }
-  return data;
+  i = 0;
+  while(recordEnJson[i]){
+    recordEn.push(recordEnJson[i++]);
+  }
+  return {recordCn,recordEn};
 }
 
