@@ -33,6 +33,16 @@
   width: 46px;
 }
 
+.analysis-box-en{
+  display: flex;
+  border: 1px solid #000;
+  margin: 1px;
+  border-radius: 5%;
+  align-items: flex-end;
+  height: 40px;
+}
+
+
 .analysis-id{
   margin-top: 2px;
   --size: 10;
@@ -43,6 +53,15 @@
 .analysis-word{
   --size: 36;
   width: calc(var(--size) * 1px);
+  height: calc(var(--size) * 1px);
+  font-size: calc(var(--size) * 0.7 * 1px);
+  line-height: calc(var(--size) * 1px);
+  text-align: center;
+  align-items: center;
+}
+
+.analysis-word-en{
+  --size: 36;
   height: calc(var(--size) * 1px);
   font-size: calc(var(--size) * 0.7 * 1px);
   line-height: calc(var(--size) * 1px);

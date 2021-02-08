@@ -92,10 +92,10 @@ function Analysis(props: any) {
         </div>
         <div className='words'>
           {wordsEn[state].map((e: any, i: number) => {
-            const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
+            const sty = e.times ? 'analysis-box-en greenBg' : 'analysis-box-en';
             return (
               <div className={sty} key={i}>
-                <div className='analysis-word'>
+                <div className='analysis-word-en'>
                   <div className='analysis-id'>{e.id}</div>
                   {e.name}
                 </div>
