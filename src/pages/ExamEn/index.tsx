@@ -2,41 +2,41 @@ import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
-import { turnPageAction } from '../../store/actions/chinese';
+import { turnEnPageAction } from '../../store/actions/examAction';
 import { postRecord } from '../../api/record';
 import Title from '../../component/title';
 
 function ExamEn(props: any) {
-  const { dictionary, chinesePage } = props;
-  const { chinese } = dictionary;
-  const { currentPage } = chinesePage;
-  const { lastPage } = chinesePage;
+  const { dictionary, englishPage } = props;
+  const { english } = dictionary;
+  const { currentPage } = englishPage;
+  const { lastPage } = englishPage;
 
   const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
 
   useEffect(() => {
-    chinese || props.dispatch(initDictionaryAction());
+    english || props.dispatch(initDictionaryAction());
   });
 
   function turnLeft() {
-    if (currentPage < chinese.length - 1) {
-      props.dispatch(turnPageAction(currentPage + 1));
+    if (currentPage < english.length - 1) {
+      props.dispatch(turnEnPageAction(currentPage + 1));
     } else {
-      props.dispatch(turnPageAction(0));
+      props.dispatch(turnEnPageAction(0));
     }
   }
 
   function turnRight() {
     if (currentPage > 0) {
-      props.dispatch(turnPageAction(currentPage - 1));
+      props.dispatch(turnEnPageAction(currentPage - 1));
     } else {
-      props.dispatch(turnPageAction(chinese.length - 1));
+      props.dispatch(turnEnPageAction(english.length - 1));
     }
   }
 
   function btnClickHandler(result: boolean) {
     postRecord({
-      ...chinese[currentPage],
+      ...english[currentPage],
       result,
     });
   }
@@ -46,9 +46,9 @@ function ExamEn(props: any) {
     if (!text.value) {
       return;
     }
-    for (let i = 0; i < chinese.length; i++) {
-      if (chinese[i].name === text.value) {
-        props.dispatch(turnPageAction(chinese[i].id));
+    for (let i = 0; i < english.length; i++) {
+      if (english[i].name === text.value) {
+        props.dispatch(turnEnPageAction(english[i].id));
         text.value = '';
         return;
       }
@@ -60,7 +60,7 @@ function ExamEn(props: any) {
   const isInit: boolean = currentPage === lastPage;
   const isNext: boolean = currentPage > lastPage;
 
-  console.log(`state ${JSON.stringify(chinesePage)}`);
+  console.log(`state ${JSON.stringify(englishPage)}`);
 
   document.onkeydown = function (event) {
     // console.log(event.code);
@@ -95,7 +95,7 @@ function ExamEn(props: any) {
         className={getName()}
         key={Math.random()}
         onClick={() => audio.play()}>
-        <div className='swiper-word'>{data.name}</div>
+        <div className='swiper-en-word'>{data.name}</div>
         <div className='swiper-id'>{data.id}</div>
         <div className='swiper-times'>{data.times}</div>
       </div>
@@ -104,19 +104,17 @@ function ExamEn(props: any) {
 
   return (
     <div className='bg'>
-      <Title txt='考试'></Title>
+      <Title txt='考试 English'></Title>
       <div className='literacy_input'>
-        {/* <form autocomplete='new-password'> */}
         <input id='jump' type='text'></input>
-        {/* </form> */}
         <button onClick={jumpTo}>go</button>
       </div>
-      <div className='swiper-container'>
-        {chinese && chinese.length ? (
+      <div className='swiper-en-container'>
+        {english && english.length ? (
           <div className='swiper-wrapper'>
-            {isNext ? getCard(chinese[currentPage - 1], false) : null}
-            {!isNext ? getCard(chinese[currentPage + 1], false) : null}
-            {getCard(chinese[currentPage], true)}
+            {isNext ? getCard(english[currentPage - 1], false) : null}
+            {!isNext ? getCard(english[currentPage + 1], false) : null}
+            {getCard(english[currentPage], true)}
           </div>
         ) : (
           <div />

@@ -28,7 +28,6 @@
   overflow: hidden;
   flex-direction: column;
   justify-content:center;
-  margin-top: 8vw;
 }
 
 .swiper-wrapper {
@@ -63,7 +62,6 @@
   line-height: 80vw;
   font-size: 80vw;
   text-align: center;
-  /* background: url(../assets/images/bg.png) center no-repeat; */
   background: url(../../assets/images/bg.png) center no-repeat;
 }
 

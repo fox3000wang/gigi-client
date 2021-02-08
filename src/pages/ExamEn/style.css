@@ -19,7 +19,7 @@
   height: 36px;
 }
 
-.swiper-container {
+.swiper-en-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,7 +28,6 @@
   overflow: hidden;
   flex-direction: column;
   justify-content:center;
-  margin-top: 8vw;
 }
 
 .swiper-wrapper {
@@ -55,16 +54,14 @@
   transform: scale(1);
 }
 
-.swiper-word {
+.swiper-en-word {
   width: 80vw;
   max-width: 80vh;
-  height: 80vw;
-  max-height: 80vh;
-  line-height: 80vw;
-  font-size: 80vw;
+  height: 70vw;
+  max-height: 50vh;
+  line-height: 50vw;
+  font-size: 20vw;
   text-align: center;
-  /* background: url(../assets/images/bg.png) center no-repeat; */
-  background: url(../../assets/images/bg.png) center no-repeat;
 }
 
 

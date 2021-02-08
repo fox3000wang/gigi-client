@@ -2,9 +2,8 @@ import './style.css';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { initDictionaryAction } from '../../store/actions/dictionary';
-import { turnPageAction } from '../../store/actions/chinese';
+import { turnCnPageAction } from '../../store/actions/examAction';
 import { postRecord } from '../../api/record';
-import { record } from '../../module/record';
 import Title from '../../component/title';
 
 function ExamCn(props: any) {
@@ -21,17 +20,17 @@ function ExamCn(props: any) {
 
   function turnLeft() {
     if (currentPage < chinese.length - 1) {
-      props.dispatch(turnPageAction(currentPage + 1));
+      props.dispatch(turnCnPageAction(currentPage + 1));
     } else {
-      props.dispatch(turnPageAction(0));
+      props.dispatch(turnCnPageAction(0));
     }
   }
 
   function turnRight() {
     if (currentPage > 0) {
-      props.dispatch(turnPageAction(currentPage - 1));
+      props.dispatch(turnCnPageAction(currentPage - 1));
     } else {
-      props.dispatch(turnPageAction(chinese.length - 1));
+      props.dispatch(turnCnPageAction(chinese.length - 1));
     }
   }
 
@@ -49,7 +48,7 @@ function ExamCn(props: any) {
     }
     for (let i = 0; i < chinese.length; i++) {
       if (chinese[i].name === text.value) {
-        props.dispatch(turnPageAction(chinese[i].id));
+        props.dispatch(turnCnPageAction(chinese[i].id));
         text.value = '';
         return;
       }
