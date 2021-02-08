@@ -12,7 +12,7 @@ function ExamEn(props: any) {
   const { currentPage } = englishPage;
   const { lastPage } = englishPage;
 
-  const audio = new Audio(`./mp3/chinese/${currentPage}.mp3`);
+  const audio = new Audio(`./mp3/english/${currentPage}.mp3`);
 
   useEffect(() => {
     english || props.dispatch(initDictionaryAction());
