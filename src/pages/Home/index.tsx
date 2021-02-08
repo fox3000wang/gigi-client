@@ -21,10 +21,13 @@ function Home(props: any) {
       <div className='home-title'>琪琪识字</div>
       <div className='menu'>
         <div className='home-btn' onClick={() => history.push('/exercise')}>
-          练习
+          中文练习
         </div>
-        <div className='home-btn' onClick={() => history.push('/exam')}>
-          考试
+        <div className='home-btn' onClick={() => history.push('/exam_cn')}>
+          中文考试
+        </div>
+        <div className='home-btn' onClick={() => history.push('/exam_en')}>
+          英文考试
         </div>
         <div className='home-btn' onClick={() => history.push('/analysis')}>
           识字分析

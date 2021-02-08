@@ -1,0 +1,222 @@
+
+.literacy_input{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 10px;
+  top: 2px;
+}
+
+.literacy_input input{
+  width: 50px;
+  height: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.literacy_input button{
+  width: 30px;
+  height: 36px;
+}
+
+.swiper-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  background-color: #fff;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content:center;
+  margin-top: 8vw;
+}
+
+.swiper-wrapper {
+  display: flex;
+  justify-content:center;
+}
+
+.swiper-id{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.swiper-times{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+.swiper-slide {
+  background-color: #fff;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.swiper-word {
+  width: 80vw;
+  max-width: 80vh;
+  height: 80vw;
+  max-height: 80vh;
+  line-height: 80vw;
+  font-size: 80vw;
+  text-align: center;
+  /* background: url(../assets/images/bg.png) center no-repeat; */
+  background: url(../../assets/images/bg.png) center no-repeat;
+}
+
+
+.btn-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  flex-direction: column;
+}
+
+.btn-group {
+  display: flex;
+  width: 100%;
+}
+
+.btn-right{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-color: green;
+  width: 50%;
+  height: 10vw;
+  text-align: center;
+  font-size: 5vw;
+  line-height: 10vw;
+  border: 1px solid #fff; 
+  cursor: pointer;
+}
+
+.btn-wrong{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-color: red;
+  width: 50%;
+  height: 10vw;
+  text-align: center;
+  font-size: 5vw;
+  line-height: 10vw;
+  border: 1px solid #fff; 
+  cursor: pointer;
+}
+
+.btn-play {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background-color: var(--bg-color);
+  width: 50%;
+  height: 10vw;
+  text-align: center;
+  font-size: 5vw;
+  line-height: 10vw;
+  border: 1px solid #fff; 
+  cursor: pointer;
+}
+
+
+.triangleUp{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 20px 10px;
+  border-color: transparent transparent #fff transparent;
+  margin: 4px;
+}
+
+.triangleDown{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 10px 0 10px;
+  border-color: #fff transparent transparent transparent;
+  margin: 4px;
+}
+
+.triangleLeft{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 20px 10px 0px;
+  border-color: transparent #fff transparent transparent ;
+  margin: 4px;
+}
+
+.triangleRight{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0px 10px 20px;
+  border-color: transparent transparent transparent #fff;
+  margin: 4px;
+}
+
+
+
+.turnLeft{
+  animation-name: turnLeftAnimation;
+  animation-duration: 1s;
+  
+}
+.turnLeft2{
+  animation-name: turnLeft2Animation;
+  animation-duration: 1s;  
+  width: 0;
+  transform: scale(0);
+}
+.turnRight{
+  animation-name: pageRightAnimation;
+  animation-duration: 1s;
+}
+.turnRight2{
+  animation-name: pageRight2Animation;
+  animation-duration: 1s;
+  width: 0;
+  transform: scale(0);
+}
+
+@keyframes turnLeftAnimation {
+  0% {
+    transform: translate(100vw, 0) scale(0);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes turnLeft2Animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-100vw, 0) scale(0);
+  }
+}
+
+
+@keyframes pageRightAnimation {
+  0% {
+    transform: translate(-100vw, 0) scale(0);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes pageRight2Animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(100vw, 0) scale(0);
+  }
+}

@@ -1,20 +1,24 @@
 import React from 'react';
 import { BrowserRouter, HashRouter, Switch, Route } from 'react-router-dom';
 import Analysis from './pages/Analysis';
-import Exercise from './pages/Exercise';
+import ExerciseCn from './pages/ExerciseCn';
 import Home from './pages/Home';
-import Exam from './pages/Exam';
+import ExamCn from './pages/ExamCn';
+import ExamEn from './pages/ExamEn';
 import History from './pages/History';
 
 export default function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route path='/exercise'>
-          <Exercise />
+        <Route path='/exercise_cn'>
+          <ExerciseCn />
         </Route>
-        <Route path='/exam'>
-          <Exam />
+        <Route path='/exam_cn'>
+          <ExamCn />
+        </Route>
+        <Route path='/exam_en'>
+          <ExamEn />
         </Route>
         <Route path='/analysis'>
           <Analysis />

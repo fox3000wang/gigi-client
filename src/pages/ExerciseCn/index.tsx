@@ -8,7 +8,7 @@ import Title from '../../component/title';
  * 用iframe套一个识字的app
  * @param props
  */
-function Exercise(props: any) {
+function ExerciseCn(props: any) {
   const { dictionary } = props;
   const { chinese } = dictionary;
   const [current, setCurrent] = useState(0);
@@ -74,4 +74,4 @@ export default connect(state => {
   return {
     ...state,
   };
-})(Exercise);
+})(ExerciseCn);

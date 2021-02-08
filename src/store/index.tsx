@@ -3,12 +3,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { dictionaryReducer } from './reducers/dictionary';
 import { chineseReducer } from './reducers/chinese';
+import { englishReducer } from './reducers/english';
 import { recordReducer } from './reducers/record';
 
 // redux state 树的根
 let rootReducer = combineReducers({
   dictionary: dictionaryReducer, //字典表管理
   chinesePage: chineseReducer, // 中文
+  englishPage: englishReducer, // 中文
   record: recordReducer, // 学习记录
 });
 

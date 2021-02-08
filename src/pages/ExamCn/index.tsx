@@ -7,7 +7,7 @@ import { postRecord } from '../../api/record';
 import { record } from '../../module/record';
 import Title from '../../component/title';
 
-function Exam(props: any) {
+function ExamCn(props: any) {
   const { dictionary, chinesePage } = props;
   const { chinese } = dictionary;
   const { currentPage } = chinesePage;
@@ -153,4 +153,4 @@ export default connect(state => {
   return {
     ...state,
   };
-})(Exam);
+})(ExamCn);
