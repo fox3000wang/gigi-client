@@ -38,6 +38,7 @@ function ExamEn(props: any) {
     postRecord({
       ...english[currentPage],
       result,
+      language: 'en',
     });
   }
 

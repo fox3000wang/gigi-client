@@ -38,6 +38,7 @@ function ExamCn(props: any) {
     postRecord({
       ...chinese[currentPage],
       result,
+      language: 'cn',
     });
   }
 
