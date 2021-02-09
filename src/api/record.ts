@@ -25,7 +25,7 @@ export function getRecord() {
   });
 }
 
-function getLocalRecord() {
+function getLocalRecord():any {
   const recordCn:any[] = [];
   const recordEn:any[] = [];
   let i = 0;
