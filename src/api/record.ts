@@ -1,6 +1,6 @@
 import axios from 'axios';
-import * as recordCnJson from './record.cn.json';
-import * as recordEnJson from './record.en.json';
+import * as recordCnJson from '../../data/record.cn.json';
+import * as recordEnJson from '../../data/record.en.json';
 
 const url = `http://localhost/vita`;
 

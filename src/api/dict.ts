@@ -1,6 +1,6 @@
 import axios from 'axios';
-import * as dictJsonCn from './dict.cn.json';
-import * as dictJsonEn from './dict.en.json';
+import * as dictJsonEn from '../../data/dict.en.json';
+import * as dictJsonCn from '../../data/dict.cn.json';
 
 /*
  * 原始字典数据
