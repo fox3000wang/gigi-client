@@ -12,6 +12,11 @@ enum State {
   Known,
   Unknown,
 }
+enum Language {
+  All,
+  Cn,
+  En,
+}
 
 function Analysis(props: any) {
   const { dictionary, record } = props;
@@ -28,6 +33,7 @@ function Analysis(props: any) {
   });
 
   const [state, setState] = useState(State.All);
+  const [language, setLanguage] = useState(Language.All);
 
   // 记录学习次数
   if (recordCn && chinese) {
@@ -70,42 +76,55 @@ function Analysis(props: any) {
     <div className='bg'>
       <Title txt='识字分析'></Title>
       <div className='scroll-box'>
-        <div className='subTitle'>
-          掌握({knownCn.length}/{chinese.length}){' '}
-        </div>
-        <div className='words'>
-          {wordsCn[state].map((e: any, i: number) => {
-            const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
-            return (
-              <div className={sty} key={i}>
-                <div className='analysis-word'>
-                  <div className='analysis-id'>{e.id}</div>
-                  {e.name}
-                </div>
-                <div className='analysis-num'>{e.times}</div>
-              </div>
-            );
-          })}
-        </div>
-        <div className='subTitle'>
-          掌握({knownEn.length}/{english.length}){' '}
-        </div>
-        <div className='words'>
-          {wordsEn[state].map((e: any, i: number) => {
-            const sty = e.times ? 'analysis-box-en greenBg' : 'analysis-box-en';
-            return (
-              <div className={sty} key={i}>
-                <div className='analysis-word-en'>
-                  <div className='analysis-id'>{e.id}</div>
-                  {e.name}
-                </div>
-                <div className='analysis-num'>{e.times}</div>
-              </div>
-            );
-          })}
-        </div>
+        {language === Language.All || language === Language.Cn ? (
+          <div>
+            <div className='subTitle'>
+              中文掌握({knownCn.length}/{chinese.length}){' '}
+            </div>
+            <div className='words'>
+              {wordsCn[state].map((e: any, i: number) => {
+                const sty = e.times ? 'analysis-box greenBg' : 'analysis-box';
+                return (
+                  <div className={sty} key={i}>
+                    <div className='analysis-word'>
+                      <div className='analysis-id'>{e.id}</div>
+                      {e.name}
+                    </div>
+                    <div className='analysis-num'>{e.times}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
+        {language === Language.All || language === Language.En ? (
+          <div>
+            <div className='subTitle'>
+              英文掌握({knownEn.length}/{english.length}){' '}
+            </div>
+            <div className='words'>
+              {wordsEn[state].map((e: any, i: number) => {
+                const sty = e.times
+                  ? 'analysis-box-en greenBg'
+                  : 'analysis-box-en';
+                return (
+                  <div className={sty} key={i}>
+                    <div className='analysis-word-en'>
+                      <div className='analysis-id'>{e.id}</div>
+                      {e.name}
+                    </div>
+                    <div className='analysis-num'>{e.times}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : null}
       </div>
       <div className='analysis-buttom'>
+        <Button txt='中文' onClick={() => setLanguage(Language.Cn)}></Button>
+        <Button txt='英文' onClick={() => setLanguage(Language.En)}></Button>
+        <Button txt='中英' onClick={() => setLanguage(Language.All)}></Button>
         <Button txt='掌握' onClick={() => setState(State.Known)}></Button>
         <Button txt='不会' onClick={() => setState(State.Unknown)}></Button>
         <Button txt='全部' onClick={() => setState(State.All)}></Button>
