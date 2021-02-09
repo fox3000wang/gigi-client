@@ -21,12 +21,13 @@
 
 .word{
   --font-size: 22;
-  width: calc(var(--font-size) * 1px);
+  width: auto;
   height: calc(var(--font-size) * 1px);
   font-size: calc(var(--font-size) * 0.9 * 1px);
   line-height: calc(var(--font-size) * 1px);
   border: 1px solid #000;
   margin: 1px;
+  padding: 2px;
   text-align: center;
-  border-radius: 20%;
+  border-radius: 10%;
 }

@@ -9,7 +9,7 @@ import { initDictionaryAction } from '../../store/actions/dictionary';
 function History(props: any) {
   const { dictionary, record } = props;
   const { chinese } = dictionary;
-  const { recordCn } = record;
+  const { recordCn, recordEn } = record;
   const history: any = {};
 
   useEffect(() => {
@@ -24,6 +24,15 @@ function History(props: any) {
       }
       history[record.date].push(record);
     });
+  recordEn &&
+    recordEn.forEach((record: record) => {
+      if (!history[record.date]) {
+        history[record.date] = [];
+      }
+      history[record.date].push(record);
+    });
+
+  //console.log(JSON.stringify(history));
 
   if (!recordCn) {
     return <></>;
@@ -37,9 +46,9 @@ function History(props: any) {
           return (
             <div className='words' key={key}>
               <div className='subTitle'>{key}</div>
-              {words.map((record: record) => {
+              {words.map((record: record, index: number) => {
                 return (
-                  <div className='word' key={`${key}${record.id}`}>
+                  <div className='word' key={`${key}${record.id}${index}`}>
                     {record.name}
                   </div>
                 );
