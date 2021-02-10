@@ -97,6 +97,7 @@ function ExamEn(props: any) {
         key={Math.random()}
         onClick={() => audio.play()}>
         <div className='swiper-en-word'>{data.name}</div>
+        <div className='swiper-translation-word'>{data.cn}</div>
         <div className='swiper-id'>{data.id}</div>
         <div className='swiper-times'>{data.times}</div>
       </div>

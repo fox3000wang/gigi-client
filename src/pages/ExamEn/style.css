@@ -57,10 +57,15 @@
 .swiper-en-word {
   width: 80vw;
   max-width: 80vh;
-  height: 70vw;
+  height: 60vw;
   max-height: 50vh;
-  line-height: 50vw;
-  font-size: 20vw;
+  line-height: 60vw;
+  font-size: 18vw;
+  text-align: center;
+}
+
+.swiper-translation-word {
+  font-size: 8vw;
   text-align: center;
 }
 
