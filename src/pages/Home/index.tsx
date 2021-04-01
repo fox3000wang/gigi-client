@@ -20,7 +20,7 @@ function Home(props: any) {
     <div className='bg'>
       <div className='home-title'>琪琪识字</div>
       <div className='menu'>
-        <div className='home-btn' onClick={() => history.push('/exercise')}>
+        <div className='home-btn' onClick={() => history.push('/exercise_cn')}>
           中文练习
         </div>
         <div className='home-btn' onClick={() => history.push('/exam_cn')}>
