@@ -22,7 +22,10 @@ module.exports = {
     open: true,
     compress: true,
     hot: true,
-    contentBase: [path.resolve(__dirname, 'dist'), resolve('media')],
+    static: [
+      {directory: path.resolve(__dirname, 'dist')}, 
+      {directory: resolve('media')}
+    ],
     historyApiFallback: {
       //browserHash 刷新重定向到index.html
       index: './index.html',

@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as recordCnJson from '../../data/record.cn.json';
 import * as recordEnJson from '../../data/record.en.json';
 
-const url = `http://localhost/vita`;
+const url = `http://localhost:9999/vita`;
 
 export function postRecord(record: any) {
   axios.post(url, record).then(response => {
