@@ -17,21 +17,25 @@ function History(props: any) {
     recordCn || props.dispatch(getRecordAction());
   });
 
-  recordCn &&
-    recordCn.forEach((record: record) => {
+  if(recordCn){
+    recordCn.reverse().forEach((record: record) => {
       if (!history[record.date]) {
         history[record.date] = [];
       }
       history[record.date].push(record);
     });
-  recordEn &&
-    recordEn.forEach((record: record) => {
+  }
+    
+  if(recordEn){
+    recordEn.reverse().forEach((record: record) => {
       if (!history[record.date]) {
         history[record.date] = [];
       }
       history[record.date].push(record);
     });
-
+  }
+    
+  
   //console.log(JSON.stringify(history));
 
   if (!recordCn) {
@@ -44,11 +48,11 @@ function History(props: any) {
         {Object.keys(history).map((key: string) => {
           const words = history[key];
           return (
-            <div className='words' key={key}>
+            <div className='words' key={`${key}`}>
               <div className='subTitle'>{key}</div>
               {words.map((record: record, index: number) => {
                 return (
-                  <div className='word' key={`${key}${record.id}${index}`}>
+                  <div className='word' key={`${key}${record.id} ${index}`}>
                     {record.name}
                   </div>
                 );
