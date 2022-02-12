@@ -9,7 +9,7 @@
     "build": "webpack --config build/webpack.dev.config.js",
     "lint": "eslint src --ext .tsx",
     "lint:fix": "eslint src --ext .tsx --fix",
-    "publish": "npm run build && rsync -av build/dist/ ubuntu@qq:/var/www/html/sz && rsync -av media/ ubuntu@qq:/var/www/html/sz",
+    "publish": "npm run build && rsync -av build/dist/ ubuntu@q.wangzm.cn:/var/www/html/sz && rsync -av media/ ubuntu@q.wangzm.cn:/var/www/html/sz",
     "test": "jest"
   },
   "repository": {
