@@ -1,0 +1,16 @@
+.mathSubject{
+  font-size: 4.2vh;
+  margin: 5px;
+  width: 11%;
+  padding-right: 1px;
+  padding-top: 2px;
+}
+
+
+.words{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:left;
+  /* padding-left: 5vh; */
+  /* padding-top: 3vh; */
+}

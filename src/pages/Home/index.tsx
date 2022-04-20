@@ -32,6 +32,9 @@ function Home(props: any) {
         <div className='home-btn' onClick={() => history.push('/analysis')}>
           识字分析
         </div>
+        <div className='home-btn' onClick={() => history.push('/math_subject')}>
+          数学题
+        </div>
         <div className='home-btn' onClick={() => history.push('/history')}>
           学习履历
         </div>

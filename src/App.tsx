@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import ExamCn from './pages/ExamCn';
 import ExamEn from './pages/ExamEn';
 import History from './pages/History';
+import MathSubject from './pages/MathSubject';
 
 export default function App() {
   return (
@@ -25,6 +26,9 @@ export default function App() {
         </Route>
         <Route path='/history'>
           <History />
+        </Route>
+        <Route path='/math_subject'>
+          <MathSubject />
         </Route>
         <Route path='/'>
           <Home />

@@ -7,3 +7,5 @@ export const TURN_ENGLISH_PAGE: string = 'TURN_ENGLISH_PAGE'; // 英文翻页
 export const UPDAET_RECORD: string = 'UPDAET_RECORD'; // 更新记录
 
 export const GET_RECORD: string = 'GET_RECORD'; // 获取记录
+
+export const GET_MATH_SUBJECT: string = 'GET_MATH_SUBJECT'; // 获取算数题
