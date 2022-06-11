@@ -18,13 +18,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    port: 8888,
+    port: 8880,
     open: true,
     compress: true,
     hot: true,
     static: [
-      {directory: path.resolve(__dirname, 'dist')}, 
-      {directory: resolve('media')}
+      { directory: path.resolve(__dirname, 'dist') },
+      { directory: resolve('media') },
     ],
     historyApiFallback: {
       //browserHash 刷新重定向到index.html

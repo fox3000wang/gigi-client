@@ -54,6 +54,11 @@ function ExamCn(props: any) {
         return;
       }
     }
+    if (text.value < chinese.length) {
+      props.dispatch(turnCnPageAction(text.value));
+      text.value = '';
+      return;
+    }
     text.blur();
     console.log(`${text.value} not fonud!!!`);
   }

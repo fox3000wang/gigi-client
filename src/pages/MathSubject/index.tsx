@@ -12,6 +12,7 @@ const config = {
 function MathSubject(props: any) {
   useEffect(() => {});
 
+  /*
   function setLevel() {
     const text: any = document.getElementById('level');
     props.dispatch(
@@ -21,54 +22,63 @@ function MathSubject(props: any) {
       })
     );
   }
-
-  function randomNum(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
+  */
 
   // 生成 0-9 之间的随机数
-  function gemRandom() {
-    return Math.floor(Math.random() * config.level);
+  //function genRandom() {
+  //  return Math.floor(Math.random() * config.level);
+  //}
+
+  // 生成随机数
+  function genRandom(from: number, to: number) {
+    return Math.floor(Math.random() * (to - from + 1) + from);
   }
 
   // 生成加法题
-  function gemAdd() {
+  function genAdd() {
     const subject: any[] = [];
     config.operator = ['+'];
-    for (let i: any = 0; i < 104; i++) {
-      let a: any = gemRandom();
-      let b: any = gemRandom();
-      while (a + b > 10) {
-        b = gemRandom();
+    //for (let i: any = 0; i < 104; i++) {
+    for (let i: any = 0; i < 112; i++) {
+      let a: any = genRandom(1, 7);
+      let b: any = genRandom(1, 10);
+      while (a + b > 9) {
+        b = genRandom(1, 10);
       }
-      subject.push([a, b]);
+      subject.push([a + 10, b + 10]);
     }
     return subject;
   }
 
   // 生成减法题
-  function gemSub() {
+  function genSub() {
     const subject: any[] = [];
     config.operator = ['-'];
     for (let i: any = 0; i < 104; i++) {
-      let a: any = gemRandom() + 1;
-      let b: any = gemRandom();
-      while (a - b < 0) {
-        b = gemRandom();
+      let a: any = genRandom(3, 9);
+      let b: any = genRandom(1, 9);
+      while (a - b <= 0) {
+        b = genRandom(2, 10);
       }
-      subject.push([a, b]);
+      let c: any = genRandom(3, 9);
+      let d: any = genRandom(1, 9);
+      while (c - d <= 0) {
+        d = genRandom(2, 10);
+      }
+
+      subject.push([a * 10 + c, b * 10 + d]);
     }
     return subject;
   }
 
-  //const mathSubject: any[] = gemAdd();
-  const mathSubject: any[] = gemSub();
+  //const mathSubject: any[] = genAdd();
+  const mathSubject: any[] = genSub();
 
   const operatior = config.operator[0];
   return (
     <div className='bg'>
       <Title txt='数学题'>
-        <input id='level' type='text' onChange={setLevel}></input>
+        {/* <input id='level' type='text' onChange={setLevel}></input> */}
       </Title>
       <div className='scroll-box'>
         <div>
