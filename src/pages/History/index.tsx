@@ -17,7 +17,7 @@ function History(props: any) {
     recordCn || props.dispatch(getRecordAction());
   });
 
-  if(recordCn){
+  if (recordCn) {
     recordCn.reverse().forEach((record: record) => {
       if (!history[record.date]) {
         history[record.date] = [];
@@ -25,8 +25,8 @@ function History(props: any) {
       history[record.date].push(record);
     });
   }
-    
-  if(recordEn){
+
+  if (recordEn) {
     recordEn.reverse().forEach((record: record) => {
       if (!history[record.date]) {
         history[record.date] = [];
@@ -34,8 +34,7 @@ function History(props: any) {
       history[record.date].push(record);
     });
   }
-    
-  
+
   //console.log(JSON.stringify(history));
 
   if (!recordCn) {

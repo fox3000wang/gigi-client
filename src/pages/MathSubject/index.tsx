@@ -12,23 +12,6 @@ const config = {
 function MathSubject(props: any) {
   useEffect(() => {});
 
-  /*
-  function setLevel() {
-    const text: any = document.getElementById('level');
-    props.dispatch(
-      getMathSubjectAction({
-        ...config,
-        level: text.value ? text.value : 10,
-      })
-    );
-  }
-  */
-
-  // 生成 0-9 之间的随机数
-  //function genRandom() {
-  //  return Math.floor(Math.random() * config.level);
-  //}
-
   // 生成随机数
   function genRandom(from: number, to: number) {
     return Math.floor(Math.random() * (to - from + 1) + from);
@@ -55,18 +38,12 @@ function MathSubject(props: any) {
     const subject: any[] = [];
     config.operator = ['-'];
     for (let i: any = 0; i < 104; i++) {
-      let a: any = genRandom(3, 9);
-      let b: any = genRandom(1, 9);
+      let a: any = genRandom(9, 18);
+      let b: any = genRandom(6, 12);
       while (a - b <= 0) {
-        b = genRandom(2, 10);
+        b = genRandom(1, 9);
       }
-      let c: any = genRandom(3, 9);
-      let d: any = genRandom(1, 9);
-      while (c - d <= 0) {
-        d = genRandom(2, 10);
-      }
-
-      subject.push([a * 10 + c, b * 10 + d]);
+      subject.push([a, b]);
     }
     return subject;
   }
