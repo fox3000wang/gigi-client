@@ -48,15 +48,25 @@ function MathSubject(props: any) {
     return subject;
   }
 
-  //const mathSubject: any[] = genAdd();
-  const mathSubject: any[] = genSub();
+  // 生成乘法题
+  function genmul() {
+    const subject: any[] = [];
+    config.operator = ['X'];
+
+    for (let i: any = 0; i < 112; i++) {
+      let a: any = genRandom(1, 2);
+      let b: any = genRandom(1, 9);
+      subject.push([a, b]);
+    }
+    return subject;
+  }
+
+  const mathSubject: any[] = genmul();
 
   const operatior = config.operator[0];
   return (
     <div className='bg'>
-      <Title txt='数学题'>
-        {/* <input id='level' type='text' onChange={setLevel}></input> */}
-      </Title>
+      <Title txt='数学题'>{/* <input id='level' type='text' onChange={setLevel}></input> */}</Title>
       <div className='scroll-box'>
         <div>
           <div className='subjects'>

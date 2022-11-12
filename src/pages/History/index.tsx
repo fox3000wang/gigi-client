@@ -52,7 +52,7 @@ function History(props: any) {
               {words.map((record: record, index: number) => {
                 return (
                   <div className='word' key={`${key}${record.id} ${index}`}>
-                    {record.name}
+                    {record.label}
                   </div>
                 );
               })}
