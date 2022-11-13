@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const url = `http://localhost:9999/vita`;
-//const url = `http://wangzm.cn:9999/vita`;
+const url = `http://localhost:9999/record`;
+//const url = `http://wangzm.cn:9999/record`;
 
 export function postRecord(record: any) {
   axios

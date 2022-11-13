@@ -82,21 +82,12 @@ function ExamEn(props: any) {
         return 'swiper-slide';
       }
       return `swiper-slide ${
-        isMain
-          ? isNext
-            ? `turnLeft`
-            : `turnRight`
-          : isNext
-          ? `turnLeft2`
-          : `turnRight2`
+        isMain ? (isNext ? `turnLeft` : `turnRight`) : isNext ? `turnLeft2` : `turnRight2`
       }`;
     }
     return (
-      <div
-        className={getName()}
-        key={Math.random()}
-        onClick={() => audio.play()}>
-        <div className='swiper-en-word'>{data.name}</div>
+      <div className={getName()} key={Math.random()} onClick={() => audio.play()}>
+        <div className='swiper-en-word'>{data.label}</div>
         <div className='swiper-translation-word'>{data.cn}</div>
         <div className='swiper-id'>{data.id}</div>
         <div className='swiper-times'>{data.times}</div>

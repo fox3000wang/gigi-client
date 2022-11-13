@@ -38,12 +38,9 @@ function ExerciseCn(props: any) {
           <div className='btn-ctn'>
             {btns.map((items, i) => {
               return (
-                <div
-                  key={i}
-                  className='red-btn'
-                  onClick={() => setCurrent(i + 1)}>
+                <div key={i} className='red-btn' onClick={() => setCurrent(i + 1)}>
                   {items.map((item: any) => {
-                    return <div key={item.id}>{item.name}</div>;
+                    return <div key={item.id}>{item.label}</div>;
                   })}
                 </div>
               );

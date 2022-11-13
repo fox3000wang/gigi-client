@@ -88,7 +88,7 @@ function Analysis(props: any) {
                   <div className={sty} key={i}>
                     <div className='analysis-word'>
                       <div className='analysis-id'>{e.id}</div>
-                      {e.name}
+                      {e.label}
                     </div>
                     <div className='analysis-num'>{e.times}</div>
                   </div>
@@ -104,14 +104,12 @@ function Analysis(props: any) {
             </div>
             <div className='words'>
               {wordsEn[state].map((e: any, i: number) => {
-                const sty = e.times
-                  ? 'analysis-box-en greenBg'
-                  : 'analysis-box-en';
+                const sty = e.times ? 'analysis-box-en greenBg' : 'analysis-box-en';
                 return (
                   <div className={sty} key={i}>
                     <div className='analysis-word-en'>
                       <div className='analysis-id'>{e.id}</div>
-                      {e.name}
+                      {e.label}
                     </div>
                     <div className='analysis-num'>{e.times}</div>
                   </div>

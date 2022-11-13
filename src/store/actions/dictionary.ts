@@ -1,9 +1,19 @@
 import { Dispatch } from 'redux';
-import { getDictCnArray, getDictEnArray } from '../../api/dict';
+import { getDict } from '../../api/dict';
 import { INIT_DICTIONARY } from '../types';
+
+/*
+export const initDictionaryAction: () => any = () => {
+  return (dispatch: Dispatch) => {
+    dispatch({ type: INIT_DICTIONARY, chinese: getDictCn(), english: getDictEn() });
+  };
+};
+*/
 
 export const initDictionaryAction: () => any = () => {
   return (dispatch: Dispatch) => {
-    dispatch({ type: INIT_DICTIONARY, chinese: getDictCnArray(), english: getDictEnArray() });
+    getDict().then((dict: any) => {
+      dispatch({ type: INIT_DICTIONARY, chinese: dict.cn, english: dict.en });
+    });
   };
 };

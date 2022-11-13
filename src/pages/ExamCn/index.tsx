@@ -106,7 +106,7 @@ function ExamCn(props: any) {
     }
     return (
       <div className={getName()} key={Math.random()} onClick={() => audio.play()}>
-        <div className='swiper-word'>{data.name}</div>
+        <div className='swiper-word'>{data.label}</div>
         <div className='swiper-id'>{data.id}</div>
         <div className='swiper-times'>{data.times}</div>
       </div>
